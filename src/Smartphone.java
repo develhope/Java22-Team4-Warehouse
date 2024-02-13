@@ -93,5 +93,20 @@ public class Smartphone {
     public void setIdDispositivo(int idDispositivo) {
         this.idDispositivo = idDispositivo;
     }
+
+    @Override
+    public String toString() {
+        return "Smartphone{" +
+                "tipoDispositivo='" + tipoDispositivo + '\'' +
+                ", produttore='" + produttore + '\'' +
+                ", modello='" + modello + '\'' +
+                ", descrizione='" + descrizione + '\'' +
+                ", dimensioneDisplay=" + dimensioneDisplay +
+                ", spazioArchiviazione=" + spazioArchiviazione +
+                ", prezzoAcquisto=" + prezzoAcquisto +
+                ", prezzoVendita=" + prezzoVendita +
+                ", idDispositivo=" + idDispositivo +
+                '}';
+    }
 }
 
