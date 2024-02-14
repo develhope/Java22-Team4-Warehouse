@@ -1,4 +1,3 @@
-import Dispositivi.*;
 import java.util.*;
 
 public class Magazzino {
