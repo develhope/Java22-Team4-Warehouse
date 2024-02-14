@@ -1,12 +1,12 @@
 import java.util.*;
 
 public class Magazzino {
-    private List<Smartphone> smartphoneList = new ArrayList<>();
+    private static List<Smartphone> smartphoneList = new ArrayList<>();
     private List<Notebook> notebooksList = new ArrayList<>();
     private List<Tablet> tabletsList = new ArrayList<>();
 
 
-    public void aggiungiSmartphone(Smartphone smartphone) {
+    public static void aggiungiSmartphone(Smartphone smartphone) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ciao magazziniere! Inserisci il tipo di dispositivo che vuoi inserire......\n");
         if(scanner.equals("Smartphone".equalsIgnoreCase("smartphone"))) {
