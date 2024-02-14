@@ -1,106 +1,109 @@
-import java.lang.invoke.StringConcatException;
+public class Notebook {
+        private String tipoDispositivo;
+        private String produttore;
+        private String modello;
+        private String descrizione;
+        private String dimensioneDisplay;
+        private String spazioArchiviazione;
+        private String prezzoAcquisto;
+        private String prezzoVendita;
+        private String idDispositivo;
+        public Notebook(String tipoDispositivo,String produttore, String modello,String descrizione,String dimensioneDisplay,String spazioArchiviazione,String prezzoAcquisto,String prezzoVendita, String idDispositivo){
+            this.tipoDispositivo = tipoDispositivo;
+            this.produttore = produttore;
+            this.modello = modello;
+            this.descrizione = descrizione;
+            this.dimensioneDisplay = dimensioneDisplay;
+            this.spazioArchiviazione = spazioArchiviazione;
+            this.prezzoAcquisto = prezzoAcquisto;
+            this.prezzoVendita = prezzoVendita;
+            this.idDispositivo = idDispositivo;
+        }
 
-public class Notebook{
-    private String deviceType;
-    private String deviceManufacturer;
-    private String deviceModel;
-    private String deviceDescription;
-    private String screenSize;
-    private String storageSize;
-    private String purchasePrice;
-    private String sellingPrice;
-    private String deviceID;
-    public Notebook(String deviceType,String deviceManufacturer, String deviceModel,String deviceDescription,String screenSize,String storageSize,String purchasePrice,String sellingPrice, String deviceID){
-        this.deviceType = deviceType;
-        this.deviceManufacturer = deviceManufacturer;
-        this.deviceModel = deviceModel;
-        this.deviceDescription = deviceDescription;
-        this.screenSize = screenSize;
-        this.storageSize = storageSize;
-        this.purchasePrice = purchasePrice;
-        this.sellingPrice = sellingPrice;
-        this.deviceID = deviceID;
-    }
-    //getter e setter
-    public String getDeviceType() {
-        return deviceType;
-    }
-    public String setDeviceType(){
-        return getDeviceType();
-    }
+        public String getTipoDispositivo() {
+            return tipoDispositivo;
+        }
 
-    public String getDeviceManufacturer() {
-        return deviceManufacturer;
-    }
+        public void setTipoDispositivo(String tipoDispositivo) {
+            this.tipoDispositivo = tipoDispositivo;
+        }
 
-    public String setDeviceManufacturer(){
-       return getDeviceManufacturer();
-    }
+        public String getProduttore() {
+            return produttore;
+        }
 
-    public String getDeviceModel() {
-        return deviceModel;
-    }
+        public void setProduttore(String produttore) {
+            this.produttore = produttore;
+        }
 
-    public String setDeviceModel() {
-        return getDeviceModel();
-    }
+        public String getModello() {
+            return modello;
+        }
 
-    public String getDeviceDescription() {
-        return deviceDescription;
-    }
-    public String setDeviceDescription() {
-        return getDeviceDescription();
-    }
+        public void setModello(String modello) {
+            this.modello = modello;
+        }
 
-    public String getScreenSize() {
-        return screenSize;
-    }
+        public String getDescrizione() {
+            return descrizione;
+        }
 
-    public String setScreenSize() {
-        return getScreenSize();
-    }
+        public void setDescrizione(String descrizione) {
+            this.descrizione = descrizione;
+        }
 
-    public String getStorageSize() {
-        return storageSize;
-    }
-    public String setStorageSize() {
-        return getStorageSize();
-    }
+        public String getDimensioneDisplay() {
+            return dimensioneDisplay;
+        }
 
-    public String getPurchasePrice() {
-        return purchasePrice;
-    }
-    public String setPurchasePrice() {
-        return getPurchasePrice();
-    }
+        public void setDimensioneDisplay(String dimensioneDisplay) {
+            this.dimensioneDisplay = dimensioneDisplay;
+        }
 
-    public String getSellingPrice() {
-        return sellingPrice;
-    }
-    public String setSellingPrice() {
-        return getSellingPrice();
-    }
+        public String getSpazioArchiviazione() {
+            return spazioArchiviazione;
+        }
 
-    public String getDeviceID() {
-        return deviceID;
-    }
-    public String setDeviceID() {
-        return getDeviceID();
-    }
-    //override
-    @Override
-    public String toString() {
-        return "Notebook: \n" +
-                "deviceType: " + deviceType + ", "+
-                "deviceManufacturer: " + deviceManufacturer + ", " +
-                "deviceModel: " + deviceModel + ", " +
-                "deviceDescription: " + deviceDescription + ", " +
-                "screenSize: " + screenSize +", " +
-                "storageSize: " + storageSize +", " +
-                "purchasePrice: " + purchasePrice +", " +
-                "sellingPrice: " + sellingPrice +", " +
-                "deviceID: " + deviceID +". "  ;
-    }
+        public void setSpazioArchiviazione(String spazioArchiviazione) {
+            this.spazioArchiviazione = spazioArchiviazione;
+        }
+
+        public String getPrezzoAcquisto() {
+            return prezzoAcquisto;
+        }
+
+        public void setPrezzoAcquisto(String prezzoAcquisto) {
+            this.prezzoAcquisto = prezzoAcquisto;
+        }
+
+        public String getPrezzoVendita() {
+            return prezzoVendita;
+        }
+
+        public void setPrezzoVendita(String prezzoVendita) {
+            this.prezzoVendita = prezzoVendita;
+        }
+
+        public String getIdDispositivo() {
+            return idDispositivo;
+        }
+
+        public void setIdDispositivo(String idDispositivo) {
+            this.idDispositivo = idDispositivo;
+        }
+
+        @Override
+        public String toString() {
+            return "Notebook{" +
+                    "tipoDispositivo='" + tipoDispositivo + '\'' +
+                    ", produttore='" + produttore + '\'' +
+                    ", modello='" + modello + '\'' +
+                    ", descrizione='" + descrizione + '\'' +
+                    ", dimensioneDisplay='" + dimensioneDisplay + '\'' +
+                    ", spazioArchiviazione='" + spazioArchiviazione + '\'' +
+                    ", prezzoAcquisto='" + prezzoAcquisto + '\'' +
+                    ", prezzoVendita='" + prezzoVendita + '\'' +
+                    ", idDispositivo='" + idDispositivo + '\'' +
+                    '}';
+        }
 }
-
-

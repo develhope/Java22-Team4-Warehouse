@@ -1,102 +1,109 @@
 public class Smartphone{
-    private String deviceType;
-    private String deviceManufacturer;
-    private String deviceModel;
-    private String deviceDescription;
-    private String screenSize;
-    private String storageSize;
-    private String purchasePrice;
-    private String sellingPrice;
-    private String deviceID;
-    public Smartphone(String deviceType,String deviceManufacturer, String deviceModel,String deviceDescription,String screenSize,String storageSize,String purchasePrice,String sellingPrice, String deviceID){
-        this.deviceType = deviceType;
-        this.deviceManufacturer = deviceManufacturer;
-        this.deviceModel = deviceModel;
-        this.deviceDescription = deviceDescription;
-        this.screenSize = screenSize;
-        this.storageSize = storageSize;
-        this.purchasePrice = purchasePrice;
-        this.sellingPrice = sellingPrice;
-        this.deviceID = deviceID;
-    }
-    //getter e setter
-    public String getDeviceType() {
-        return deviceType;
-    }
-    public String setDeviceType(){
-        return getDeviceType();
+    private String tipoDispositivo;
+    private String produttore;
+    private String modello;
+    private String descrizione;
+    private String dimensioneDisplay;
+    private String spazioArchiviazione;
+    private String prezzoAcquisto;
+    private String prezzoVendita;
+    private String idDispositivo;
+    public Smartphone(String tipoDispositivo,String produttore, String modello,String descrizione,String dimensioneDisplay,String spazioArchiviazione,String prezzoAcquisto,String prezzoVendita, String idDispositivo){
+        this.tipoDispositivo = tipoDispositivo;
+        this.produttore = produttore;
+        this.modello = modello;
+        this.descrizione = descrizione;
+        this.dimensioneDisplay = dimensioneDisplay;
+        this.spazioArchiviazione = spazioArchiviazione;
+        this.prezzoAcquisto = prezzoAcquisto;
+        this.prezzoVendita = prezzoVendita;
+        this.idDispositivo = idDispositivo;
     }
 
-    public String getDeviceManufacturer() {
-        return deviceManufacturer;
+    public String getTipoDispositivo() {
+        return tipoDispositivo;
     }
 
-    public String setDeviceManufacturer(){
-        return getDeviceManufacturer();
+    public void setTipoDispositivo(String tipoDispositivo) {
+        this.tipoDispositivo = tipoDispositivo;
     }
 
-    public String getDeviceModel() {
-        return deviceModel;
+    public String getProduttore() {
+        return produttore;
     }
 
-    public String setDeviceModel() {
-        return getDeviceModel();
+    public void setProduttore(String produttore) {
+        this.produttore = produttore;
     }
 
-    public String getDeviceDescription() {
-        return deviceDescription;
-    }
-    public String setDeviceDescription() {
-        return getDeviceDescription();
+    public String getModello() {
+        return modello;
     }
 
-    public String getScreenSize() {
-        return screenSize;
+    public void setModello(String modello) {
+        this.modello = modello;
     }
 
-    public String setScreenSize() {
-        return getScreenSize();
+    public String getDescrizione() {
+        return descrizione;
     }
 
-    public String getStorageSize() {
-        return storageSize;
-    }
-    public String setStorageSize() {
-        return getStorageSize();
+    public void setDescrizione(String descrizione) {
+        this.descrizione = descrizione;
     }
 
-    public String getPurchasePrice() {
-        return purchasePrice;
-    }
-    public String setPurchasePrice() {
-        return getPurchasePrice();
+    public String getDimensioneDisplay() {
+        return dimensioneDisplay;
     }
 
-    public String getSellingPrice() {
-        return sellingPrice;
-    }
-    public String setSellingPrice() {
-        return getSellingPrice();
+    public void setDimensioneDisplay(String dimensioneDisplay) {
+        this.dimensioneDisplay = dimensioneDisplay;
     }
 
-    public String getDeviceID() {
-        return deviceID;
+    public String getSpazioArchiviazione() {
+        return spazioArchiviazione;
     }
-    public String setDeviceID() {
-        return getDeviceID();
+
+    public void setSpazioArchiviazione(String spazioArchiviazione) {
+        this.spazioArchiviazione = spazioArchiviazione;
     }
-    //override
+
+    public String getPrezzoAcquisto() {
+        return prezzoAcquisto;
+    }
+
+    public void setPrezzoAcquisto(String prezzoAcquisto) {
+        this.prezzoAcquisto = prezzoAcquisto;
+    }
+
+    public String getPrezzoVendita() {
+        return prezzoVendita;
+    }
+
+    public void setPrezzoVendita(String prezzoVendita) {
+        this.prezzoVendita = prezzoVendita;
+    }
+
+    public String getIdDispositivo() {
+        return idDispositivo;
+    }
+
+    public void setIdDispositivo(String idDispositivo) {
+        this.idDispositivo = idDispositivo;
+    }
+
     @Override
     public String toString() {
-        return "Smartphone: \n" +
-                "deviceType: " + deviceType + ", "+
-                "deviceManufacturer: " + deviceManufacturer + ", " +
-                "deviceModel: " + deviceModel + ", " +
-                "deviceDescription: " + deviceDescription + ", " +
-                "screenSize: " + screenSize +", " +
-                "storageSize: " + storageSize +", " +
-                "purchasePrice: " + purchasePrice +", " +
-                "sellingPrice: " + sellingPrice +", " +
-                "deviceID: " + deviceID +". "  ;
+        return "Smartphone{" +
+                "tipoDispositivo='" + tipoDispositivo + '\'' +
+                ", produttore='" + produttore + '\'' +
+                ", modello='" + modello + '\'' +
+                ", descrizione='" + descrizione + '\'' +
+                ", dimensioneDisplay='" + dimensioneDisplay + '\'' +
+                ", spazioArchiviazione='" + spazioArchiviazione + '\'' +
+                ", prezzoAcquisto='" + prezzoAcquisto + '\'' +
+                ", prezzoVendita='" + prezzoVendita + '\'' +
+                ", idDispositivo='" + idDispositivo + '\'' +
+                '}';
     }
-    }
+}

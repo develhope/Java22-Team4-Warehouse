@@ -1,4 +1,4 @@
-
+import Dispositivi.*;
 import java.util.*;
 
 public class Magazzino {
@@ -14,22 +14,22 @@ public class Magazzino {
             smartphone.setTipoDispositivo(scanner.nextLine());
             smartphoneList.add(smartphone);
         }
-        System.out.println("Digita l'ID di 4 cifre del tuo dispositivo.....");
-        smartphone.setIdDispositivo(scanner.nextInt());
+        System.out.println("Digita l'ID del tuo dispositivo.....");
+        smartphone.setIdDispositivo(scanner.nextLine());
         System.out.println("Digita il modello del dispositivo.....");
         smartphone.setModello(scanner.nextLine());
         System.out.println("Digita il produttore del dispositivo.....");
         smartphone.setProduttore(scanner.nextLine());
         System.out.println("Digita la descrizione del dispositivo.....");
         smartphone.setDescrizione(scanner.nextLine());
-        System.out.println("Digita la dimensione del display in questo formato: 00.0.....");
-        smartphone.setDimensioneDisplay(scanner.nextDouble());
-        System.out.println("Digita la dimensione dello spazio di archiviazione del dispositivo usando solo le cifre.....");
-        smartphone.setSpazioArchiviazione(scanner.nextInt());
-        System.out.println("Digita il prezzo di acquisto in questo formato: 00.0.....");
-        smartphone.setPrezzoAcquisto(scanner.nextDouble());
-        System.out.println("Digita il prezzo di vendita in questo formato: 00.0.....");
-        smartphone.setPrezzoVendita(scanner.nextDouble());
+        System.out.println("Digita la dimensione del display....");
+        smartphone.setDimensioneDisplay(scanner.nextLine());
+        System.out.println("Digita la dimensione dello spazio di archiviazione del dispositivo....");
+        smartphone.setSpazioArchiviazione(scanner.nextLine());
+        System.out.println("Digita il prezzo di acquisto.....");
+        smartphone.setPrezzoAcquisto(scanner.nextLine());
+        System.out.println("Digita il prezzo di vendita.....");
+        smartphone.setPrezzoVendita(scanner.nextLine());
         System.out.println("Grazie! A presto");
         scanner.close();
     }
@@ -40,22 +40,22 @@ public class Magazzino {
             notebook.setTipoDispositivo(scanner.nextLine());
             notebooksList.add(notebook);
         }
-        System.out.println("Digita l'ID di 4 cifre del tuo dispositivo.....");
-        notebook.setIdDispositivo(scanner.nextInt());
+        System.out.println("Digita l'ID del tuo dispositivo.....");
+        notebook.setIdDispositivo(scanner.nextLine());
         System.out.println("Digita il modello del dispositivo.....");
         notebook.setModello(scanner.nextLine());
         System.out.println("Digita il produttore del dispositivo.....");
         notebook.setProduttore(scanner.nextLine());
         System.out.println("Digita la descrizione del dispositivo.....");
         notebook.setDescrizione(scanner.nextLine());
-        System.out.println("Digita la dimensione del display in questo formato: 00.0.....");
-        notebook.setDimensioneDisplay(scanner.nextDouble());
-        System.out.println("Digita la dimensione dello spazio di archiviazione del dispositivo usando solo le cifre.....");
-        notebook.setSpazioArchiviazione(scanner.nextInt());
-        System.out.println("Digita il prezzo di acquisto in questo formato: 00.0.....");
-        notebook.setPrezzoAcquisto(scanner.nextDouble());
-        System.out.println("Digita il prezzo di vendita in questo formato: 00.0.....");
-        notebook.setPrezzoVendita(scanner.nextDouble());
+        System.out.println("Digita la dimensione del display.....");
+        notebook.setDimensioneDisplay(scanner.nextLine());
+        System.out.println("Digita la dimensione dello spazio di archiviazione del dispositivo.....");
+        notebook.setSpazioArchiviazione(scanner.nextLine());
+        System.out.println("Digita il prezzo di acquisto.....");
+        notebook.setPrezzoAcquisto(scanner.nextLine());
+        System.out.println("Digita il prezzo di vendita....");
+        notebook.setPrezzoVendita(scanner.nextLine());
         System.out.println("Grazie! A presto");
         scanner.close();
     }
@@ -66,8 +66,8 @@ public class Magazzino {
             tablet.setTipoDispositivo(scanner.nextLine());
             tabletsList.add(tablet);
         }
-        System.out.println("Digita l'ID di 4 cifre del tuo dispositivo.....");
-        tablet.setIdDispositivo(scanner.nextInt());
+        System.out.println("Digita l'ID del tuo dispositivo.....");
+        tablet.setIdDispositivo(scanner.nextLine());
         System.out.println("Digita il modello del dispositivo.....");
         tablet.setModello(scanner.nextLine());
         System.out.println("Digita il produttore del dispositivo.....");
@@ -75,13 +75,13 @@ public class Magazzino {
         System.out.println("Digita la descrizione del dispositivo.....");
         tablet.setDescrizione(scanner.nextLine());
         System.out.println("Digita la dimensione del display in questo formato: 00.0.....");
-        tablet.setDimensioneDisplay(scanner.nextDouble());
+        tablet.setDimensioneDisplay(scanner.nextLine());
         System.out.println("Digita la dimensione dello spazio di archiviazione del dispositivo usando solo le cifre.....");
-        tablet.setSpazioArchiviazione(scanner.nextInt());
+        tablet.setSpazioArchiviazione(scanner.nextLine());
         System.out.println("Digita il prezzo di acquisto in questo formato: 00.0.....");
-        tablet.setPrezzoAcquisto(scanner.nextDouble());
+        tablet.setPrezzoAcquisto(scanner.nextLine());
         System.out.println("Digita il prezzo di vendita in questo formato: 00.0.....");
-        tablet.setPrezzoVendita(scanner.nextDouble());
+        tablet.setPrezzoVendita(scanner.nextLine());
         System.out.println("Grazie! A presto");
         scanner.close();
     }
