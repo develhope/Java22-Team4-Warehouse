@@ -118,7 +118,7 @@ public class Magazzino {
     public void trovaProduttore() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ciao! Ricerca il tuo prodotto per produttore:");
-//QUI MANCA TUTTA LA LOGICA!!
+// DA QUI MANCA TUTTA LA LOGICA DELLO SCANNER!!
         for (Smartphone smartphone : smartphoneList ) {
             System.out.println("Il produttore del tuo smartphone è:\n" + smartphone.getProduttore());
             if(smartphone.getProduttore().isEmpty()){
