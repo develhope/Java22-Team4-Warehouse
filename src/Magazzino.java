@@ -2,8 +2,8 @@ import java.util.*;
 
 public class Magazzino {
     private static List<Smartphone> smartphoneList = new ArrayList<>();
-    private List<Notebook> notebooksList = new ArrayList<>();
-    private List<Tablet> tabletsList = new ArrayList<>();
+    private static List<Notebook> notebooksList = new ArrayList<>();
+    private static List<Tablet> tabletsList = new ArrayList<>();
 
 
     public static void aggiungiSmartphone(Smartphone smartphone) {
