@@ -85,7 +85,7 @@ public class Magazzino {
         System.out.println("Grazie! A presto");
         scanner.close();
     }
-
+//
    // Un metodo per la stampa di tutti i dispositivi a magazzino.
     public void stampaDispositivi() {
         System.out.println(smartphoneList);
