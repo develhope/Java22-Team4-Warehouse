@@ -29,7 +29,7 @@ public class Dispositivi {
         return TipoDispositivo;
     }
 
-    public static void setTipoDispositivo(String tipoDispositivo) {
+    public static void setTipoDispositivo(Enum tipoDispositivo) {
         TipoDispositivo = tipoDispositivo;
     }
 
