@@ -6,10 +6,7 @@ public class Magazzino {
     public static void aggiungiDispositivoMagazzino(Dispositivi dispositivi) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ciao magazziniere! Inserisci il tipo di dispositivo che vuoi inserire......\n");
-        if (scanner.equals(Dispositivi.getTipoDispositivo())) {
-            Dispositivi.setTipoDispositivo(//scanner.next());
-            dispositiviList.add(dispositivi);
-        }
+        String setTipoDispositivo = scanner.next();
         System.out.println("Digita l'ID del tuo dispositivo.....");
         dispositivi.setIdDispositivo(scanner.nextLine());
         System.out.println("Digita il modello del dispositivo.....");
