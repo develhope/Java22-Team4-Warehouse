@@ -20,4 +20,20 @@ public class Magazzino {
         return listaDispositivi;
     }
 
+    public void ricercaProduttore(List<Dispositivi> listaDispositivi){
+        for (Dispositivi dispositivo : listaDispositivi){
+            if (dispositivo.getBrand().equals(null)){
+                System.out.println("il dispositivo non è disponibile");
+            }
+            System.out.println(dispositivo.getBrand());
+        }
+    }
+    public void ricercaModello(List<Dispositivi> listaDispositivi){
+        for (Dispositivi dispositivo : listaDispositivi){
+            if (dispositivo.getModello().equals(null)){
+                System.out.println("il dispositivo non è disponibile");
+            }
+            System.out.println(dispositivo.getModello());
+        }
+    }
 }
