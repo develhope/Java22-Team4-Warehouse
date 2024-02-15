@@ -4,7 +4,7 @@ public class Dispositivi {
         TABLET,
         NOTEBOOK;
     }
-    private static Enum TipoDispositivo;
+    private TipoDispositivo tipoDispositivo;
     private String produttore;
     private String modello;
     private String descrizione;
@@ -13,8 +13,8 @@ public class Dispositivi {
     private String prezzoAcquisto;
     private String prezzoVendita;
     private String idDispositivo;
-    public void Dispositivo(Enum TipoDispositivo, String produttore, String modello, String descrizione, String dimensioneDisplay, String spazioArchiviazione, String prezzoAcquisto, String prezzoVendita, String idDispositivo){
-        this.TipoDispositivo = Dispositivi.TipoDispositivo;
+    public void Dispositivo(TipoDispositivo tipoDispositivo, String produttore, String modello, String descrizione, String dimensioneDisplay, String spazioArchiviazione, String prezzoAcquisto, String prezzoVendita, String idDispositivo){
+        this.tipoDispositivo = new Dispositivi().tipoDispositivo;
         this.produttore = produttore;
         this.modello = modello;
         this.descrizione = descrizione;
@@ -26,11 +26,11 @@ public class Dispositivi {
     }
 
     public static Enum getTipoDispositivo() {
-        return TipoDispositivo;
+        return new Dispositivi().tipoDispositivo;
     }
 
-    public static void setTipoDispositivo(Enum tipoDispositivo) {
-        TipoDispositivo = tipoDispositivo;
+    public void setTipoDispositivo(TipoDispositivo tipoDispositivo) {
+        this.tipoDispositivo = new Dispositivi().tipoDispositivo;
     }
 
     public String getProduttore() {
@@ -100,7 +100,7 @@ public class Dispositivi {
     @Override
     public String toString() {
         return "Dispositivi{" +
-                "Tipo di dispositivo"+ Dispositivi.TipoDispositivo +
+                "Tipo di dispositivo"+ tipoDispositivo +
                 "produttore='" + produttore + '\'' +
                 ", modello='" + modello + '\'' +
                 ", descrizione='" + descrizione + '\'' +
