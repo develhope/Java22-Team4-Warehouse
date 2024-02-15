@@ -1,5 +1,10 @@
-public class Tablet{
-    private String tipoDispositivo;
+public class Dispositivi {
+    public enum TipoDispositivo{
+        SMARTPHONE,
+        TABLET,
+        NOTEBOOK;
+    }
+    private static Enum TipoDispositivo;
     private String produttore;
     private String modello;
     private String descrizione;
@@ -8,8 +13,8 @@ public class Tablet{
     private String prezzoAcquisto;
     private String prezzoVendita;
     private String idDispositivo;
-    public Tablet(String tipoDispositivo,String produttore, String modello,String descrizione,String dimensioneDisplay,String spazioArchiviazione,String prezzoAcquisto,String prezzoVendita, String idDispositivo){
-        this.tipoDispositivo = tipoDispositivo;
+    public void Dispositivo(Enum TipoDispositivo, String produttore, String modello, String descrizione, String dimensioneDisplay, String spazioArchiviazione, String prezzoAcquisto, String prezzoVendita, String idDispositivo){
+        this.TipoDispositivo = Dispositivi.TipoDispositivo;
         this.produttore = produttore;
         this.modello = modello;
         this.descrizione = descrizione;
@@ -20,12 +25,12 @@ public class Tablet{
         this.idDispositivo = idDispositivo;
     }
 
-    public String getTipoDispositivo() {
-        return tipoDispositivo;
+    public static Enum getTipoDispositivo() {
+        return TipoDispositivo;
     }
 
-    public void setTipoDispositivo(String tipoDispositivo) {
-        this.tipoDispositivo = tipoDispositivo;
+    public static void setTipoDispositivo(String tipoDispositivo) {
+        TipoDispositivo = tipoDispositivo;
     }
 
     public String getProduttore() {
@@ -94,9 +99,9 @@ public class Tablet{
 
     @Override
     public String toString() {
-        return "Tablet{" +
-                "tipoDispositivo='" + tipoDispositivo + '\'' +
-                ", produttore='" + produttore + '\'' +
+        return "Dispositivi{" +
+                "Tipo di dispositivo"+ Dispositivi.TipoDispositivo +
+                "produttore='" + produttore + '\'' +
                 ", modello='" + modello + '\'' +
                 ", descrizione='" + descrizione + '\'' +
                 ", dimensioneDisplay='" + dimensioneDisplay + '\'' +
