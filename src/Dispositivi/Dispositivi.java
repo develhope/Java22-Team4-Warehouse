@@ -1,13 +1,13 @@
 package Dispositivi;
 
-import java.util.Objects;
+import java.util.Scanner;
 
 public class Dispositivi {
     private String dispositivo;
     private String brand;
     private String modello;
     private String descrizione;
-    private int display;
+    private String display;
     private double memoria;
     private double prezzoAcquisto;
     private double prezzo;
@@ -16,7 +16,7 @@ public class Dispositivi {
 
     public Dispositivi(String dispositivo,
                          String brand,
-                         int display,
+                         String display,
                          String modello,
                          String descrizione,
                         double prezzo,
@@ -31,6 +31,7 @@ public class Dispositivi {
         this.prezzoAcquisto = prezzoAcquisto;
         this.prezzo = prezzo;
     }
+    public Dispositivi(Scanner scanner){};
 
     public long getId() {
         return id;
@@ -56,7 +57,7 @@ public class Dispositivi {
         this.descrizione = descrizione;
     }
 
-    public void setDisplay(int display) {
+    public void setDisplay(String display) {
         this.display = display;
     }
 
@@ -88,7 +89,7 @@ public class Dispositivi {
         return descrizione;
     }
 
-    public double getDisplay() {
+    public String getDisplay() {
         return display;
     }
 
@@ -112,10 +113,10 @@ public class Dispositivi {
                         ", Brand: " + brand +
                         ", Modello: " + modello +
                         ", Descrizione: " + descrizione +
-                        ", Display: " + display +
-                        ", Memoria: " + memoria +
-                        ", Prezzo d'Acquisto " + prezzoAcquisto +
-                        ", Prezzo: " + prezzo +
+                        ", Display: " + display + " pollici" +
+                        ", Memoria: " + memoria + " GB" +
+                        ", Prezzo d'Acquisto " + prezzoAcquisto + " Euro" +
+                        ", Prezzo: " + prezzo + " Euro" +
                         ", Id: " + id + "\n";
     }
 
