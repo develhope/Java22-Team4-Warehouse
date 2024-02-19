@@ -3,7 +3,7 @@ package Dispositivi;
 import java.util.Scanner;
 
 public class Dispositivi {
-    private String dispositivo;
+    private String tipoDispositivo;
     private String brand;
     private String modello;
     private String descrizione;
@@ -14,7 +14,7 @@ public class Dispositivi {
 
     private long id;
 
-    public Dispositivi(String dispositivo,
+    public Dispositivi(String tipoDispositivo,
                          String brand,
                          String display,
                          String modello,
@@ -22,7 +22,7 @@ public class Dispositivi {
                         double prezzo,
                          double memoria,
                          double prezzoAcquisto) {
-        this.dispositivo = dispositivo;
+        this.tipoDispositivo = tipoDispositivo;
         this.brand = brand;
         this.modello = modello;
         this.descrizione = descrizione;
@@ -31,7 +31,16 @@ public class Dispositivi {
         this.prezzoAcquisto = prezzoAcquisto;
         this.prezzo = prezzo;
     }
-    public Dispositivi(Scanner scanner){};
+    public Dispositivi(Scanner scanner){
+        this.tipoDispositivo = scanner.next();
+        this.brand = scanner.next();
+        this.modello = scanner.next();
+        this.descrizione = scanner.next();
+        this.display = String.valueOf(Integer.parseInt(scanner.next()));
+        this.memoria = Double.parseDouble(scanner.next());
+        this.prezzoAcquisto = Double.parseDouble(scanner.next());
+        this.prezzo = Double.parseDouble(scanner.next());
+    }
 
     public long getId() {
         return id;
@@ -41,8 +50,8 @@ public class Dispositivi {
         this.id = id;
     }
 
-    public void setDispositivo(String dispositivo) {
-        this.dispositivo = dispositivo;
+    public void setTipoDispositivo(String dispositivo) {
+        this.tipoDispositivo = tipoDispositivo;
     }
 
     public void setBrand(String brand) {
@@ -74,7 +83,7 @@ public class Dispositivi {
     }
 
     public String getDispositivo() {
-        return dispositivo;
+        return tipoDispositivo;
     }
 
     public String getBrand() {
@@ -109,7 +118,7 @@ public class Dispositivi {
     @Override
     public String toString() {
         return
-                "Device: " + dispositivo +
+                "Device: " + tipoDispositivo +
                         ", Brand: " + brand +
                         ", Modello: " + modello +
                         ", Descrizione: " + descrizione +
