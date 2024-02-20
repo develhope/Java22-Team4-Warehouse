@@ -64,11 +64,11 @@ public class Main {
         System.out.println("Dispositivo trovato: " + dispositivoTrovato);
 
         // Calcolare prezzo finale
-        double prezzoFinale = carrello.getFinalPrice();
+        double prezzoFinale = carrello.prezzofinale();
         System.out.println("Prezzo finale: " + prezzoFinale);
 
         // Svuotare carrello
-        carrello.emptyList();
+        carrello.listavuota();
         System.out.println("Il carrello è stato svuotato!");
 
         // Stampare elementi nel carrello

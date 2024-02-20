@@ -59,7 +59,7 @@ public class Carrello {
     }
 
     // Calcolare prezzo finale
-    public double getFinalPrice() {
+    public double prezzofinale() {
         double prezzoFinale = 0;
         for (Dispositivi dispositivo : dispositivo) {
             prezzoFinale += dispositivo.getPrezzo();
@@ -68,7 +68,7 @@ public class Carrello {
     }
 
     // Svuota carrello
-    public void emptyList() {
+    public void listavuota() {
         dispositivo.clear();
     }
 
