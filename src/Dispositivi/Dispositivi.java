@@ -60,7 +60,7 @@ public class Dispositivi {
         this.memoria = memoria;
     }
 
-    public void setTipoDispositivo(String dispositivo) {
+    public void setTipoDispositivo(String tipoDispositivo) {
         this.tipoDispositivo = tipoDispositivo;
     }
 
