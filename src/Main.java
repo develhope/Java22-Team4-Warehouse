@@ -39,8 +39,8 @@ public class Main {
         // Aggiungere al carrello
         System.out.println("Inserisci l'ID del dispositivo da aggiungere al carrello:");
         long idDaAggiungere = scanner.nextLong();
-        Smartphone smartphone1 = new Smartphone("smartphone","samsung",5,"a12","ef",322.32,125,213.45);
-        carrello.aggiungiDispositivo(smartphone1);
+
+        carrello.aggiungiDispositivo(dispositivo);
 
         // Rimuovere dal carrello tramite ID
         System.out.println("Inserisci l'ID del dispositivo da rimuovere dal carrello:");
