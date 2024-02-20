@@ -42,12 +42,22 @@ public class Dispositivi {
         this.prezzo = Double.parseDouble(scanner.next());
     }
 
+    public Dispositivi() {}
+
     public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getTipoDispositivo() {
+        return tipoDispositivo;
+    }
+
+    public void setMemoria(double memoria) {
+        this.memoria = memoria;
     }
 
     public void setTipoDispositivo(String dispositivo) {
