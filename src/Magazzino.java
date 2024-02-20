@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Magazzino {
 
-    private List<Dispositivi> listaDispositivi = new ArrayList<>();
+    protected List<Dispositivi> listaDispositivi = new ArrayList<>();
 
     public void aggiungiDispositivoMagazzino(Dispositivi dispositivi) {
         listaDispositivi.add(dispositivi);

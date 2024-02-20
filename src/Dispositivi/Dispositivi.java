@@ -1,28 +1,28 @@
 package Dispositivi;
 
-import java.util.Objects;
+import java.util.Scanner;
 
 public class Dispositivi {
-    private String dispositivo;
+    private String tipoDispositivo;
     private String brand;
     private String modello;
     private String descrizione;
-    private int display;
+    private String display;
     private double memoria;
     private double prezzoAcquisto;
     private double prezzo;
 
     private long id;
 
-    public Dispositivi(String dispositivo,
-                         String brand,
-                         int display,
-                         String modello,
-                         String descrizione,
-                        double prezzo,
-                         double memoria,
-                         double prezzoAcquisto) {
-        this.dispositivo = dispositivo;
+    public Dispositivi(String tipoDispositivo,
+                       String brand,
+                       String display,
+                       String modello,
+                       String descrizione,
+                       double prezzo,
+                       double memoria,
+                       double prezzoAcquisto) {
+        this.tipoDispositivo = tipoDispositivo;
         this.brand = brand;
         this.modello = modello;
         this.descrizione = descrizione;
@@ -31,6 +31,18 @@ public class Dispositivi {
         this.prezzoAcquisto = prezzoAcquisto;
         this.prezzo = prezzo;
     }
+    public Dispositivi(Scanner scanner){
+        this.tipoDispositivo = scanner.next();
+        this.brand = scanner.next();
+        this.modello = scanner.next();
+        this.descrizione = scanner.next();
+        this.display = String.valueOf(Integer.parseInt(scanner.next()));
+        this.memoria = Double.parseDouble(scanner.next());
+        this.prezzoAcquisto = Double.parseDouble(scanner.next());
+        this.prezzo = Double.parseDouble(scanner.next());
+    }
+
+    public Dispositivi() {}
 
     public long getId() {
         return id;
@@ -40,8 +52,16 @@ public class Dispositivi {
         this.id = id;
     }
 
-    public void setDispositivo(String dispositivo) {
-        this.dispositivo = dispositivo;
+    public String getTipoDispositivo() {
+        return tipoDispositivo;
+    }
+
+    public void setMemoria(double memoria) {
+        this.memoria = memoria;
+    }
+
+    public void setTipoDispositivo(String dispositivo) {
+        this.tipoDispositivo = tipoDispositivo;
     }
 
     public void setBrand(String brand) {
@@ -56,7 +76,7 @@ public class Dispositivi {
         this.descrizione = descrizione;
     }
 
-    public void setDisplay(int display) {
+    public void setDisplay(String display) {
         this.display = display;
     }
 
@@ -73,7 +93,7 @@ public class Dispositivi {
     }
 
     public String getDispositivo() {
-        return dispositivo;
+        return tipoDispositivo;
     }
 
     public String getBrand() {
@@ -88,7 +108,7 @@ public class Dispositivi {
         return descrizione;
     }
 
-    public double getDisplay() {
+    public String getDisplay() {
         return display;
     }
 
@@ -108,14 +128,14 @@ public class Dispositivi {
     @Override
     public String toString() {
         return
-                "Device: " + dispositivo +
+                "Device: " + tipoDispositivo +
                         ", Brand: " + brand +
                         ", Modello: " + modello +
                         ", Descrizione: " + descrizione +
-                        ", Display: " + display +
-                        ", Memoria: " + memoria +
-                        ", Prezzo d'Acquisto " + prezzoAcquisto +
-                        ", Prezzo: " + prezzo +
+                        ", Display: " + display + " pollici" +
+                        ", Memoria: " + memoria + " GB" +
+                        ", Prezzo d'Acquisto " + prezzoAcquisto + " Euro" +
+                        ", Prezzo: " + prezzo + " Euro" +
                         ", Id: " + id + "\n";
     }
 
