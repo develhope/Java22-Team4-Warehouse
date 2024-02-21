@@ -12,7 +12,7 @@ List<Dispositivi> dispositiviList = new ArrayList<>();
     public void aggiungiDispositiviConWhile(Scanner scanner1) {
         Scanner scanner = new Scanner(System.in);
         String risposta;
-
+//SCEGLIERE UNA VARIABILE COME SOGLIA DI DISPOSITIVI DA INSERIRE CON LO SCANNER;
         Dispositivi nuovoDispositivo = new Dispositivi();
         do {
             System.out.print("Inserisci il brand del dispositivo: ");
