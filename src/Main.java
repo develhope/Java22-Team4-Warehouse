@@ -1,5 +1,6 @@
 import Dispositivi.Dispositivi;
 import java.util.Scanner;
+import Dispositivi.Smartphone;
 
 public class Main {
     public static void main(String[] args) {
@@ -32,5 +33,45 @@ public class Main {
         magazzino.aggiungiDispositivoMagazzino(dispositivo);
         magazzino.stampaDispositivi(magazzino.listaDispositivi);
 
+
+        Carrello carrello = new Carrello();
+
+        // Aggiungere al carrello
+        System.out.println("Inserisci l'ID del dispositivo da aggiungere al carrello:");
+        long idDaAggiungere = scanner.nextLong();
+
+        carrello.aggiungiDispositivo(dispositivo);
+
+        // Rimuovere dal carrello tramite ID
+        System.out.println("Inserisci l'ID del dispositivo da rimuovere dal carrello:");
+        long idDaRimuovere = scanner.nextLong();
+        carrello.rimuoviDispositivoid(1);
+
+        // Controllare se l'ID esiste
+        System.out.println("Inserisci l'ID da verificare:");
+        long idDaVerificare = scanner.nextLong();
+        boolean idEsistente = carrello.idesistente(idDaVerificare);
+        System.out.println("L'ID esiste nel carrello? " + idEsistente);
+
+        // Controllare se il carrello è vuoto
+        boolean carrelloVuoto = carrello.carrellovuoto();
+        System.out.println("Il carrello è vuoto? " + carrelloVuoto);
+
+        // Ottenere prodotto da ID
+        System.out.println("Inserisci l'ID del dispositivo da cercare:");
+        long idDaCercare = scanner.nextLong();
+        Dispositivi dispositivoTrovato = carrello.cercaProdottoid(1);
+        System.out.println("Dispositivo trovato: " + dispositivoTrovato);
+
+        // Calcolare prezzo finale
+        double prezzoFinale = carrello.prezzofinale();
+        System.out.println("Prezzo finale: " + prezzoFinale);
+
+        // Svuotare carrello
+        carrello.listavuota();
+        System.out.println("Il carrello è stato svuotato!");
+
+        // Stampare elementi nel carrello
+        carrello.tuttidispositivi();
     }
 }
