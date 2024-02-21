@@ -3,6 +3,7 @@ package Dispositivi;
 import java.util.Scanner;
 
 public class Dispositivi {
+
     private String tipoDispositivo;
     private String brand;
     private String modello;
@@ -43,6 +44,8 @@ public class Dispositivi {
     }
 
     public Dispositivi() {}
+
+
 
     public long getId() {
         return id;
