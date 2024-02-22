@@ -2,6 +2,7 @@ import Dispositivi.Dispositivi;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Magazzino {
 
@@ -96,6 +97,30 @@ public class Magazzino {
 
         return totaleSpesa / listaDispositivi.size();
 
+    }
+    public void aggiungiDispositiviConWhile() {
+        Scanner scanner = new Scanner(System.in);
+        String risposta;
+
+        do {
+
+            Dispositivi nuovoDispositivo = new Dispositivi();
+
+
+            System.out.print("Inserisci il brand del dispositivo: ");
+            nuovoDispositivo.setBrand(scanner.nextLine());
+            System.out.print("Inserisci il modello del dispositivo: ");
+            nuovoDispositivo.setModello(scanner.nextLine());
+            System.out.print("Inserisci il prezzo del dispositivo: ");
+            nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
+
+            aggiungiDispositivoMagazzino(nuovoDispositivo);
+
+            System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
+            risposta = scanner.nextLine();
+        } while (risposta.equalsIgnoreCase("sì"));
+
+        scanner.close();
     }
 }
 

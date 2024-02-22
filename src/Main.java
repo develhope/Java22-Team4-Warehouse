@@ -1,6 +1,7 @@
 import Dispositivi.Dispositivi;
 import java.util.Scanner;
-import Dispositivi.Smartphone;
+import Dispositivi.Operazione;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -28,6 +29,7 @@ public class Main {
         System.out.println("Digita il prezzo di vendita.....");
         dispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
         System.out.println("Grazie! A presto");
+
         scanner.close();
 
         magazzino.aggiungiDispositivoMagazzino(dispositivo);
@@ -73,5 +75,48 @@ public class Main {
 
         // Stampare elementi nel carrello
         carrello.tuttidispositivi();
+
+
+
+        Scanner scanner1 = new Scanner(System.in);
+
+        System.out.println("Scegli un'operazione da eseguire:");
+        for (Operazione op : Operazione.values()) {
+            System.out.println(op.name());
+        }
+        String scelta = scanner1.nextLine();
+
+
+        Operazione operazioneScelta = Operazione.valueOf(scelta);
+        switch (operazioneScelta) {
+            case AGGIUNGI_AL_CARRELLO:
+                break;
+            case RIMUOVI_DAL_CARRELLO:
+                break;
+            case CERCA_PRODOTTO_NEL_CARRELLO:
+                break;
+            case SVUOTA_CARRELLO:
+                break;
+            case AGGIUNGI_AL_MAGAZZINO:
+                break;
+            case CALCOLA_PREZZO_FINALE:
+                break;
+            case VERIFICA_CARRELLO_VUOTO:
+                break;
+            case STAMPA_ELEMENTI_CARRELLO:
+                break;
+            case VERIFICA_ID_NEL_CARRELLO:
+                break;
+            case STAMPA_ELEMENTI_MAGAZZINO:
+                break;
+
+            default:
+                System.out.println("Operazione non supportata");
+        }
+
     }
 }
+
+
+
+
