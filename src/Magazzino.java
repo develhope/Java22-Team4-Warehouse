@@ -2,17 +2,16 @@ import Dispositivi.Dispositivi;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Magazzino {
 
-    private List<Dispositivi> listaDispositivi = new ArrayList<>();
+    protected List<Dispositivi> listaDispositivi = new ArrayList<>();
 
-    //un metodo che aggiunge i dispositivi a magazzino
     public void aggiungiDispositivoMagazzino(Dispositivi dispositivi) {
         listaDispositivi.add(dispositivi);
     }
 
-    //Un metodo che stampa i dispositivi del magazzino
     public List<Dispositivi> stampaDispositivi(List<Dispositivi> listaDispositivi) {
         for (Dispositivi dispositivo : listaDispositivi) {
             if (dispositivo.getDispositivo().equals(null)) {
@@ -22,36 +21,23 @@ public class Magazzino {
         return listaDispositivi;
     }
 
-    //Un metodo che esegue una ricerca per produttore e genera un messaggio se il dispositivo non è presente
     public void ricercaProduttore(List<Dispositivi> listaDispositivi) {
         for (Dispositivi dispositivo : listaDispositivi) {
-            if (dispositivo.getBrand() == null) {
+            if (dispositivo.getBrand().equals(null)) {
                 System.out.println("il dispositivo non è disponibile");
             }
             System.out.println(dispositivo.getBrand());
         }
     }
+
     public void ricercaModello(List<Dispositivi> listaDispositivi) {
         for (Dispositivi dispositivo : listaDispositivi) {
-            if (dispositivo.getModello() == null) {
+            if (dispositivo.getModello().equals(null)) {
                 System.out.println("il dispositivo non è disponibile");
             }
             System.out.println(dispositivo.getModello());
         }
     }
-
-    /* Un metodo che permetta la ricerca per prezzo di vendita
-      o un errore nel caso in cui la ricerca non produca risultati.*/
-    public ArrayList<Dispositivi> cercaPerPrezzo(ArrayList<Dispositivi> listaDispositivi, double prezzoDaCercare) {
-        ArrayList<Dispositivi> dispositiviRicerca = new ArrayList<>();
-        for (Dispositivi dispositivo : listaDispositivi) {
-            if (dispositivo.getPrezzo() == prezzoDaCercare) {
-                dispositiviRicerca.add(dispositivo);
-            }
-        }
-        return dispositiviRicerca;
-    }
-
 
     /* Un metodo che permetta la ricerca per prezzo di vendita
       Dovrà resitutire la lista di dispositivi frutto della ricerca
@@ -99,9 +85,6 @@ public class Magazzino {
 }
 
 
-    }
-
-    public static double calcolaSpesaMedia(ArrayList<Dispositivi> listaDispositivi) {
     public static double calcolaSpesaMedia(ArrayList<Dispositivi> listaDispositivi){
         if (listaDispositivi.isEmpty()) {
             System.out.println("La lista dei dispositivi è vuota, impossibile calcolare la spesa media.");
@@ -115,13 +98,29 @@ public class Magazzino {
         return totaleSpesa / listaDispositivi.size();
 
     }
-    }
+    public void aggiungiDispositiviConWhile() {
+        Scanner scanner = new Scanner(System.in);
+        String risposta;
 
-    @Override
-    public String toString() {
-        return "Magazzino{" +
-                "listaDispositivi=" + listaDispositivi +
-                '}';
+        do {
+
+            Dispositivi nuovoDispositivo = new Dispositivi();
+
+
+            System.out.print("Inserisci il brand del dispositivo: ");
+            nuovoDispositivo.setBrand(scanner.nextLine());
+            System.out.print("Inserisci il modello del dispositivo: ");
+            nuovoDispositivo.setModello(scanner.nextLine());
+            System.out.print("Inserisci il prezzo del dispositivo: ");
+            nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
+
+            aggiungiDispositivoMagazzino(nuovoDispositivo);
+
+            System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
+            risposta = scanner.nextLine();
+        } while (risposta.equalsIgnoreCase("sì"));
+
+        scanner.close();
     }
 }
 
