@@ -1,6 +1,7 @@
-import Dispositivi.Dispositivi;
 
 import java.util.ArrayList;
+import Dispositivi.Dispositivi;
+
 
 
 
@@ -10,6 +11,7 @@ public class Carrello {
     public Carrello() {
         this.dispositivo = new ArrayList<>();
     }
+
 
     // Aggiungere al carrello
     public void aggiungiDispositivo(Dispositivi dispositivo) {
@@ -27,7 +29,7 @@ public class Carrello {
     }
 
     // Controlla se l'id esiste
-    public boolean containsDeviceById(long id) {
+    public boolean idesistente(long id) {
         for (Dispositivi device : dispositivo) {
             if (device.getId() == id) {
                 return true;
@@ -37,7 +39,7 @@ public class Carrello {
     }
 
     // Controlla se il carrello e' vuoto
-    public boolean isEmpty() {
+    public boolean carrellovuoto() {
         if(dispositivo.isEmpty()) {
             return true;
         }
@@ -57,7 +59,7 @@ public class Carrello {
     }
 
     // Calcolare prezzo finale
-    public double getFinalPrice() {
+    public double prezzofinale() {
         double prezzoFinale = 0;
         for (Dispositivi dispositivo : dispositivo) {
             prezzoFinale += dispositivo.getPrezzo();
@@ -66,12 +68,12 @@ public class Carrello {
     }
 
     // Svuota carrello
-    public void emptyList() {
+    public void listavuota() {
         dispositivo.clear();
     }
 
     // Stampare elementi nel carrello
-    public void printAllDevices() {
+    public void tuttidispositivi() {
         if (dispositivo.isEmpty()) {
             System.out.println("Il carrello è vuoto!");
         } else {
@@ -80,7 +82,8 @@ public class Carrello {
                 System.out.print(dispositivo.get(i));
             }
         }
+
+
+    }
     }
 
-
-}
