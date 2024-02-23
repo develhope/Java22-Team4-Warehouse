@@ -8,6 +8,28 @@ public class Magazzino {
 
     protected List<Dispositivi> listaDispositivi = new ArrayList<>();
 
+    public void aggiungiDispositivi(Scanner scanner) {
+
+        String risposta;
+
+        do {
+            Dispositivi nuovoDispositivo = new Dispositivi();
+            System.out.print("Inserisci il brand del dispositivo: ");
+            nuovoDispositivo.setBrand(scanner.nextLine());
+            System.out.print("Inserisci il modello del dispositivo: ");
+            nuovoDispositivo.setModello(scanner.nextLine());
+            System.out.print("Inserisci il prezzo del dispositivo: ");
+            nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
+            listaDispositivi.add(nuovoDispositivo);
+            System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
+            risposta = scanner.nextLine();
+        } while (risposta.equalsIgnoreCase("si"));
+
+        if (risposta.equalsIgnoreCase("no")) {
+            scanner.close();
+        }
+    }
+
     public void aggiungiDispositivoMagazzino(Dispositivi dispositivi) {
         listaDispositivi.add(dispositivi);
     }
