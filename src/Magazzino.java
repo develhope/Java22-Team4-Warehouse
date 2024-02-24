@@ -24,8 +24,7 @@ public class Magazzino {
             System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
             risposta = scanner.nextLine();
         } while (risposta.equalsIgnoreCase("si"));
-
-        if (risposta.equalsIgnoreCase("no")) {
+        if (risposta.equals("no")) {
             scanner.close();
         }
     }
@@ -120,30 +119,7 @@ public class Magazzino {
         return totaleSpesa / listaDispositivi.size();
 
     }
-    public void aggiungiDispositiviConWhile() {
-        Scanner scanner = new Scanner(System.in);
-        String risposta;
 
-        do {
-
-            Dispositivi nuovoDispositivo = new Dispositivi();
-
-
-            System.out.print("Inserisci il brand del dispositivo: ");
-            nuovoDispositivo.setBrand(scanner.nextLine());
-            System.out.print("Inserisci il modello del dispositivo: ");
-            nuovoDispositivo.setModello(scanner.nextLine());
-            System.out.print("Inserisci il prezzo del dispositivo: ");
-            nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
-
-            aggiungiDispositivoMagazzino(nuovoDispositivo);
-
-            System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
-            risposta = scanner.nextLine();
-        } while (risposta.equalsIgnoreCase("sì"));
-
-        scanner.close();
-    }
 }
 
 

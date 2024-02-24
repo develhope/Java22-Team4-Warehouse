@@ -1,89 +1,50 @@
-
 import java.util.ArrayList;
-import Dispositivi.Dispositivi;
-
-
-
+import java.util.List;
+import Dispositivi.*;
 
 public class Carrello {
-    private ArrayList<Dispositivi> dispositivo = new ArrayList<>();
+    private List<Dispositivi> listaProdotti;
 
     public Carrello() {
-        this.dispositivo = new ArrayList<>();
+        this.listaProdotti = new ArrayList<>();
     }
 
-
-    // Aggiungere al carrello
     public void aggiungiDispositivo(Dispositivi dispositivo) {
-        this.dispositivo.add(dispositivo);
+        listaProdotti.add(dispositivo);
+        System.out.println("Dispositivo aggiunto al carrello: " + dispositivo.getModello());
     }
 
-    // Rimuove dal carrello tramite ID
-    public void rimuoviDispositivoid(long id) {
-        for (int i = 0; i < dispositivo.size(); i++) {
-            if (dispositivo.get(i).getId() == id) {
-                dispositivo.remove(i);
-                break;
-            }
-        }
-    }
-
-    // Controlla se l'id esiste
-    public boolean idesistente(long id) {
-        for (Dispositivi device : dispositivo) {
-            if (device.getId() == id) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    // Controlla se il carrello e' vuoto
-    public boolean carrellovuoto() {
-        if(dispositivo.isEmpty()) {
-            return true;
-        }
-        return false;
-
-    }
-
-
-    //Ottieni prodotto da ID
-    public Dispositivi cercaProdottoid(long id) {
-        for (int i = 0; i < dispositivo.size(); i++) {
-            if (dispositivo.get(i).getId() == id) {
-                return dispositivo.get(i);
-            }
-        }
-        return null;
-    }
-
-    // Calcolare prezzo finale
-    public double prezzofinale() {
-        double prezzoFinale = 0;
-        for (Dispositivi dispositivo : dispositivo) {
-            prezzoFinale += dispositivo.getPrezzo();
-        }
-        return prezzoFinale;
-    }
-
-    // Svuota carrello
-    public void listavuota() {
-        dispositivo.clear();
-    }
-
-    // Stampare elementi nel carrello
-    public void tuttidispositivi() {
-        if (dispositivo.isEmpty()) {
-            System.out.println("Il carrello è vuoto!");
+    public void rimuoviDispositivo(Dispositivi dispositivo) {
+        if (listaProdotti.remove(dispositivo)) {
+            System.out.println("Dispositivo rimosso dal carrello: " + dispositivo.getModello());
         } else {
-            System.out.println("Questo è il carrello:");
-            for (int i = 0; i < dispositivo.size(); i++) {
-                System.out.print(dispositivo.get(i));
+            System.out.println("Il dispositivo non è presente nel carrello");
+        }
+    }
+
+    public double calcolaTotale() {
+        double totale = 0;
+        for (Dispositivi dispositivo : listaProdotti) {
+            totale += dispositivo.getPrezzo();
+        }
+        return totale;
+    }
+
+    public void svuotaCarrello() {
+        listaProdotti.clear();
+        System.out.println("Carrello svuotato");
+    }
+
+    public void stampaElementiCarrello() {
+        if (listaProdotti.isEmpty()) {
+            System.out.println("Il carrello è vuoto");
+        } else {
+            System.out.println("Elementi nel carrello:");
+            for (Dispositivi dispositivo : listaProdotti) {
+                System.out.println(dispositivo.getModello());
             }
         }
-
-
     }
-    }
+}
+
 
