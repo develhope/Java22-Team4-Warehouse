@@ -20,6 +20,7 @@ public class Magazzino {
             nuovoDispositivo.setBrand(scanner.nextLine());
             System.out.print("Inserisci il modello del dispositivo: ");
             nuovoDispositivo.setModello(scanner.nextLine());
+            //ATTENZIONE! aggiungere exception per ogni parametro che prende un numero, se si digita per sbaglio una lettera da NumberFormatException
             System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
             nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
             System.out.println("Inserisci il prezzo di vendita del dispositivo: ");

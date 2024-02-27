@@ -1,5 +1,6 @@
 import Dispositivi.Dispositivi;
 
+import javax.imageio.stream.ImageInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,6 +13,7 @@ public class Menu {
     public void avviaMenu() {
         Scanner scanner = new Scanner(System.in);
         boolean continua = true;
+
 
         while (continua) {
             System.out.println("Benvenuto nel menu principale:");
@@ -35,12 +37,12 @@ public class Menu {
                     System.out.println("Scelta non valida. Riprova.");
                     break;
             }
+            if(!continua){scanner.close();};
         }
     }
 
     private void gestisciCarrello(Scanner scanner) {
-//
-//        }
+
         System.out.println("Seleziona un'operazione:\n" +
                 "a. aggiungi un dispositivo al carrello,\n" +
                 "b. rimuovi un dispositivo dal carrello,\n" +
@@ -75,50 +77,54 @@ public class Menu {
     }
 
     private void gestisciMagazzino(Scanner scanner) {
-//        System.out.println("Operazioni disponibili sul Magazzino:");
-//        for (Operazione operazione : Operazione.values()) {
-//            System.out.println(operazione);
-//        }
-        System.out.println("Seleziona un'operazione:\n" +
-                "a. aggiungi un dispositivo al magazzino,\n" +
-                "b. visualizza tutti i dispositivi presenti nel magazzino,\n" +
-                "c. per effettuare una ricerca per produttore,\n" +
-                "d. per effettuare una ricerca per modello, \n" +
-                "e. per effettuare una ricerca per prezzo di vendita,\n" +
-                "f. per effettuare una ricerca per prezzo di acquisto,\n" +
-                "g. per effettuare una ricerca con un range di prezzo,\n" +
-                "h. per visualizzare il totale della spesa media" );
-        Magazzino magazzino1 = new Magazzino();
-        String scelta = scanner.nextLine();
+        Scanner scanner1 = new Scanner(System.in);
+        boolean continua = true;
+        while (continua) {
+            System.out.println("Seleziona un'operazione:\n" +
+                    "a. aggiungi un dispositivo al magazzino,\n" +
+                    "b. visualizza tutti i dispositivi presenti nel magazzino,\n" +
+                    "c. per effettuare una ricerca per produttore,\n" +
+                    "d. per effettuare una ricerca per modello, \n" +
+                    "e. per effettuare una ricerca per prezzo di vendita,\n" +
+                    "f. per effettuare una ricerca per prezzo di acquisto,\n" +
+                    "g. per effettuare una ricerca con un range di prezzo,\n" +
+                    "h. per visualizzare il totale della spesa media");
+            Magazzino magazzino1 = new Magazzino();
+            String scelta = scanner.nextLine();
 
-        switch (scelta) {
-            case "a":
-                magazzino1.aggiungiDispositivi(scanner);
-                break;
-            case "b":
-                magazzino1.stampaDispositivi(magazzino1.listaDispositivi);
-                break;
-            case "c":
-                magazzino1.ricercaProduttore(new ArrayList<>());
-                break;
-            case "d":
-                magazzino1.ricercaModello(new ArrayList<>());
-                break;
-            case "e":
-                magazzino1.cercaPerPrezzo(magazzino1.listaDispositivi,scanner.nextInt());
-                break;
-            case"f":
-                magazzino1.cercaPerPrezzoAcquisto(magazzino1.listaDispositivi,scanner.nextInt());
-                break;
-            case "g":
-                magazzino1.cercaPerRangePrezzo(magazzino1.listaDispositivi,scanner.nextInt(),scanner.nextInt());
-                break;
-            case "h":
-                magazzino1.calcolaSpesaMedia(magazzino1.listaDispositivi);
-                break;
-            default:
-                System.out.println("Operazione non valida.");
-                break;
+            switch (scelta) {
+                case "a":
+                    magazzino1.aggiungiDispositivi(scanner1);
+                    break;
+                case "b":
+                    magazzino1.stampaDispositivi(magazzino1.listaDispositivi);
+                    break;
+                case "c":
+                    magazzino1.ricercaProduttore(new ArrayList<>());
+                    break;
+                case "d":
+                    magazzino1.ricercaModello(new ArrayList<>());
+                    break;
+                case "e":
+                    magazzino1.cercaPerPrezzo(magazzino1.listaDispositivi, scanner.nextInt());
+                    break;
+                case "f":
+                    magazzino1.cercaPerPrezzoAcquisto(magazzino1.listaDispositivi, scanner.nextInt());
+                    break;
+                case "g":
+                    magazzino1.cercaPerRangePrezzo(magazzino1.listaDispositivi, scanner.nextInt(), scanner.nextInt());
+                    break;
+                case "h":
+                    magazzino1.calcolaSpesaMedia(magazzino1.listaDispositivi);
+                    break;
+                case "esc":
+                    continua = false;
+                    break;
+
+                default:
+                    System.out.println("Operazione non valida.");
+                    break;
+            }
         }
     }
 
