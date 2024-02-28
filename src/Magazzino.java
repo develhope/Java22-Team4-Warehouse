@@ -63,8 +63,7 @@ public class Magazzino {
             }
             listaDispositivi.add(nuovoDispositivo);
             System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
-            risposta = scanner.nextLine();
-            //NON MI DA LA POSSIBILITà DI DARE LA MIA RISPOSTA MA MI FA RIPARTIRE gestioneMagazzino()
+            risposta = scanner.next();//TODO add try catch here for answer si/no
         } while (risposta.equalsIgnoreCase("si"));
         if (risposta.equals("no")) {
             scanner.close();
