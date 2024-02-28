@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public Menu(){
+    public Menu() {
     }
 
     public void avviaMenu() {
@@ -48,8 +48,8 @@ public class Menu {
                 "b. rimuovi un dispositivo dal carrello,\n" +
                 "c. se vuoi rimovere tutti i prodotti dal carrello,\n" +
                 "d. visualizza gli elementi del tuo carrello,\n" +
-                "e. totale del carrello,\n" );
-        Carrello carrello= new Carrello();
+                "e. totale del carrello,\n");
+        Carrello carrello = new Carrello();
         Dispositivi dispositivo = new Dispositivi();
 
         String scelta = scanner.nextLine();
@@ -90,7 +90,7 @@ public class Menu {
                     "g. per effettuare una ricerca con un range di prezzo,\n" +
                     "h. per visualizzare il totale della spesa media");
             Magazzino magazzino1 = new Magazzino();
-            String scelta = scanner.nextLine();
+            String scelta = scanner.next();
 
             switch (scelta) {
                 case "a":
