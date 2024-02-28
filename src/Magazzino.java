@@ -72,7 +72,7 @@ public class Magazzino {
             if (risposta.equals("no")) {
                 scanner.close();
             }
-        }catch (IllegalStateException | NoSuchElementException e){
+        } catch (IllegalStateException | NoSuchElementException e){
             System.out.println("Ops, carattere non consentito. Digita nuovamente la tua risposta!");
             System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
             aggiungiDispositivi(scanner);
