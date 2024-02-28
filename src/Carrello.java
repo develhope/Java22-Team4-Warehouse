@@ -3,19 +3,19 @@ import java.util.List;
 import Dispositivi.*;
 
 public class Carrello {
-    private List<Dispositivi> listaProdotti;
+    public List<Dispositivi> listaDispositivi;
 
     public Carrello() {
-        this.listaProdotti = new ArrayList<>();
+        this.listaDispositivi = new ArrayList<>();
     }
 
     public void aggiungiDispositivo(Dispositivi dispositivo) {
-        listaProdotti.add(dispositivo);
+        listaDispositivi.add(dispositivo);
         System.out.println("Dispositivo aggiunto al carrello: " + dispositivo.getModello());
     }
 
     public void rimuoviDispositivo(Dispositivi dispositivo) {
-        if (listaProdotti.remove(dispositivo)) {
+        if (listaDispositivi.remove(dispositivo)) {
             System.out.println("Dispositivo rimosso dal carrello: " + dispositivo.getModello());
         } else {
             System.out.println("Il dispositivo non è presente nel carrello");
@@ -24,23 +24,23 @@ public class Carrello {
 
     public double calcolaTotale() {
         double totale = 0;
-        for (Dispositivi dispositivo : listaProdotti) {
+        for (Dispositivi dispositivo : listaDispositivi) {
             totale += dispositivo.getPrezzo();
         }
         return totale;
     }
 
     public void svuotaCarrello() {
-        listaProdotti.clear();
+        listaDispositivi.clear();
         System.out.println("Carrello svuotato");
     }
 
     public void stampaElementiCarrello() {
-        if (listaProdotti.isEmpty()) {
+        if (listaDispositivi.isEmpty()) {
             System.out.println("Il carrello è vuoto");
         } else {
             System.out.println("Elementi nel carrello:");
-            for (Dispositivi dispositivo : listaProdotti) {
+            for (Dispositivi dispositivo : listaDispositivi) {
                 System.out.println(dispositivo.getModello());
             }
         }

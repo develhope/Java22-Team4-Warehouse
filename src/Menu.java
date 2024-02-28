@@ -52,7 +52,7 @@ public class Menu {
         Carrello carrello = new Carrello();
         Dispositivi dispositivo = new Dispositivi();
 
-        String scelta = scanner.nextLine();
+        String scelta = scanner.next();
 
         switch (scelta) {
             case "a":
