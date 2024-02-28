@@ -1,8 +1,6 @@
 import Dispositivi.Dispositivi;
 
-import javax.imageio.stream.ImageInputStream;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
@@ -37,7 +35,9 @@ public class Menu {
                     System.out.println("Scelta non valida. Riprova.");
                     break;
             }
-            if(!continua){scanner.close();};
+            if (!continua) {
+                scanner.close();
+            }
         }
     }
 
