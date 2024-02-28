@@ -12,7 +12,7 @@ public class Magazzino {
     public void aggiungiDispositivi(Scanner scanner) {
 
         String risposta;
-        try {
+
             do {
                 Dispositivi nuovoDispositivo = new Dispositivi();
                 System.out.println("Inserisci il tipo di dispositivo che vuoi aggiungere:");
@@ -65,16 +65,20 @@ public class Magazzino {
                 listaDispositivi.add(nuovoDispositivo);
                 System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
                 risposta = scanner.next();
-                //TODO add try catch here for answer si/no
             } while (risposta.equalsIgnoreCase("si"));
+        //TODO add try catch here for answer si/no
+
+           try{
             if (risposta.equals("no")) {
                 scanner.close();
             }
-
         }catch (IllegalStateException | NoSuchElementException e){
             System.out.println("Ops, carattere non consentito. Digita nuovamente la tua risposta!");
+            System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
+            aggiungiDispositivi(scanner);
         }
     }
+
     public List<Dispositivi> stampaDispositivi(List<Dispositivi> listaDispositivi) {
         for (Dispositivi dispositivo : listaDispositivi) {
 
@@ -84,7 +88,7 @@ public class Magazzino {
             if(listaDispositivi.isEmpty()){
                 System.out.println("Il magazzino è vuoto" );
             }
-            System.out.println("Totale dispositivi presenti: "+listaDispositivi.size());
+            System.out.println("Totale dispositivi presenti: "+ listaDispositivi.size());
         }
         return listaDispositivi;
     }
