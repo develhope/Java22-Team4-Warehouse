@@ -20,17 +20,47 @@ public class Magazzino {
             nuovoDispositivo.setBrand(scanner.nextLine());
             System.out.print("Inserisci il modello del dispositivo: ");
             nuovoDispositivo.setModello(scanner.nextLine());
-            //ATTENZIONE! aggiungere exception per ogni parametro che prende un numero, se si digita per sbaglio una lettera da NumberFormatException
             System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
-            nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
+            try {
+                nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
+            }catch (NumberFormatException e){
+                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+                System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
+                nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
+            }
+
             System.out.println("Inserisci il prezzo di vendita del dispositivo: ");
-            nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
+            try {
+                nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
+            }catch (NumberFormatException e){
+                    System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+                    System.out.print("Inserisci il prezzo di vendita del dispositivo: ");
+                    nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
+                }
             System.out.println("Inserisci l' ID del dispositivo: ");
-            nuovoDispositivo.setId(scanner.nextInt());
+            try {
+                nuovoDispositivo.setId(scanner.nextInt());
+            }catch(NumberFormatException e){
+                    System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+                    System.out.println("Inserisci l' ID del dispositivo: ");
+                    nuovoDispositivo.setId(scanner.nextInt());
+            }
             System.out.println("Inserisci lo spazio di archiviazione: ");
-            nuovoDispositivo.setMemoria(scanner.nextInt());
+            try{
+                nuovoDispositivo.setMemoria(scanner.nextInt());
+            } catch(NumberFormatException e){
+                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+                System.out.println("Inserisci lo spazio di archiviazione: ");
+                nuovoDispositivo.setMemoria(scanner.nextInt());
+            }
             System.out.println("Inserisci da dimensione del display:");
-            nuovoDispositivo.setDisplay(scanner.nextInt());
+            try {
+                nuovoDispositivo.setDisplay(scanner.nextInt());
+            }catch(NumberFormatException e){
+                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+                System.out.println("Inserisci da dimensione del display:");
+                nuovoDispositivo.setDisplay(scanner.nextInt());
+            }
             listaDispositivi.add(nuovoDispositivo);
             System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
             risposta = scanner.nextLine();
