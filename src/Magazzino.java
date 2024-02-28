@@ -63,10 +63,16 @@ public class Magazzino {
             }
             listaDispositivi.add(nuovoDispositivo);
             System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
-            risposta = scanner.next();//TODO add try catch here for answer si/no
+            risposta = scanner.next();
+            //TODO add try catch here for answer si/no
         } while (risposta.equalsIgnoreCase("si"));
         if (risposta.equals("no")) {
             scanner.close();
+        }
+        if(risposta!= "no"||risposta!= "si"){
+            System.out.println("Ops, carattere non consentito. Digita nuovamente la tua risposta!");
+            System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
+            risposta = scanner.next();
         }
     }
     public List<Dispositivi> stampaDispositivi(List<Dispositivi> listaDispositivi) {
@@ -100,7 +106,7 @@ public class Magazzino {
     /* Un metodo che permetta la ricerca per prezzo di vendita*/
 
     public List<Dispositivi> cercaPerPrezzo(List<Dispositivi> listaDispositivi, double prezzoDaCercare) {
-        ArrayList<Dispositivi> dispositiviRicerca = new ArrayList<>();
+        List<Dispositivi> dispositiviRicerca = new ArrayList<>();
         for (Dispositivi dispositivo : listaDispositivi) {
             if (dispositivo.getPrezzo() == prezzoDaCercare) {
                 dispositiviRicerca.add(dispositivo);
@@ -114,7 +120,7 @@ public class Magazzino {
     }
 
     public List<Dispositivi> cercaPerPrezzoAcquisto(List<Dispositivi> listaDispositivi, double prezzoAcquistoDaCercare) {
-        ArrayList<Dispositivi> dispositiviRicerca = new ArrayList<>();
+            List<Dispositivi> dispositiviRicerca = new ArrayList<>();
         for (Dispositivi dispositivo : listaDispositivi) {
             if (dispositivo.getPrezzo() == prezzoAcquistoDaCercare) {
                 dispositiviRicerca.add(dispositivo);
