@@ -6,7 +6,8 @@ import java.util.Scanner;
 
 public class Menu {
 
-    public Menu() {
+    public Menu(Carrello carrello,Magazzino magazzino, Scanner scanner) {
+        //todo aggiungere variabili di ambiente per salvare valori mag carr
     }
 
     public void avviaMenu() {
@@ -97,12 +98,14 @@ public class Menu {
                switch (scelta) {
                    case "a":
                        magazzino1.aggiungiDispositivi(scanner1);
+                       //todo creare funzione scanner
                        break;
                    case "b":
                        magazzino1.stampaDispositivi(magazzino1.listaDispositivi);
                        break;
                    case "c":
                        magazzino1.ricercaProduttore(new ArrayList<>());
+                       //
                        break;
                    case "d":
                        magazzino1.ricercaModello(new ArrayList<>());
@@ -132,7 +135,7 @@ public class Menu {
            System.out.println("Operazione non valida");
        }
     }
-
+//todo metter in main
     public static void main(String[] args) {
         Menu menu = new Menu();
         menu.avviaMenu();

@@ -13,86 +13,87 @@ public class Magazzino {
 
         String risposta;
 
-            do {
-                Dispositivi nuovoDispositivo = new Dispositivi();
-                System.out.println("Inserisci il tipo di dispositivo che vuoi aggiungere:");
-                nuovoDispositivo.setTipoDispositivo(scanner.nextLine());
-                System.out.print("Inserisci il brand del dispositivo: ");
-                nuovoDispositivo.setBrand(scanner.nextLine());
-                System.out.print("Inserisci il modello del dispositivo: ");
-                nuovoDispositivo.setModello(scanner.nextLine());
+        do {
+            Dispositivi nuovoDispositivo = new Dispositivi();
+            System.out.println("Inserisci il tipo di dispositivo che vuoi aggiungere:");
+            nuovoDispositivo.setTipoDispositivo(scanner.nextLine());
+            System.out.print("Inserisci il brand del dispositivo: ");
+            nuovoDispositivo.setBrand(scanner.nextLine());
+            System.out.print("Inserisci il modello del dispositivo: ");
+            nuovoDispositivo.setModello(scanner.nextLine());
+            System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
+            try {
+                nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
+            } catch (NumberFormatException e) {
+                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
                 System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
-                try {
-                    nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
-                } catch (NumberFormatException e) {
-                    System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
-                    System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
-                    nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
-                }
+                nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
+            }
 
-                System.out.println("Inserisci il prezzo di vendita del dispositivo: ");
-                try {
-                    nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
-                } catch (NumberFormatException e) {
-                    System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
-                    System.out.print("Inserisci il prezzo di vendita del dispositivo: ");
-                    nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
-                }
+            System.out.println("Inserisci il prezzo di vendita del dispositivo: ");
+            try {
+                nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
+            } catch (NumberFormatException e) {
+                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+                System.out.print("Inserisci il prezzo di vendita del dispositivo: ");
+                nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
+            }
+            System.out.println("Inserisci l' ID del dispositivo: ");
+            try {
+                nuovoDispositivo.setId(scanner.nextInt());
+            } catch (NumberFormatException e) {
+                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
                 System.out.println("Inserisci l' ID del dispositivo: ");
-                try {
-                    nuovoDispositivo.setId(scanner.nextInt());
-                } catch (NumberFormatException e) {
-                    System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
-                    System.out.println("Inserisci l' ID del dispositivo: ");
-                    nuovoDispositivo.setId(scanner.nextInt());
-                }
+                nuovoDispositivo.setId(scanner.nextInt());
+            }
+            System.out.println("Inserisci lo spazio di archiviazione: ");
+            try {
+                nuovoDispositivo.setMemoria(scanner.nextInt());
+            } catch (NumberFormatException e) {
+                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
                 System.out.println("Inserisci lo spazio di archiviazione: ");
-                try {
-                    nuovoDispositivo.setMemoria(scanner.nextInt());
-                } catch (NumberFormatException e) {
-                    System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
-                    System.out.println("Inserisci lo spazio di archiviazione: ");
-                    nuovoDispositivo.setMemoria(scanner.nextInt());
-                }
+                nuovoDispositivo.setMemoria(scanner.nextInt());
+            }
+            System.out.println("Inserisci da dimensione del display:");
+            try {
+                nuovoDispositivo.setDisplay(scanner.nextInt());
+            } catch (NumberFormatException e) {
+                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
                 System.out.println("Inserisci da dimensione del display:");
-                try {
-                    nuovoDispositivo.setDisplay(scanner.nextInt());
-                } catch (NumberFormatException e) {
-                    System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
-                    System.out.println("Inserisci da dimensione del display:");
-                    nuovoDispositivo.setDisplay(scanner.nextInt());
-                }
-                listaDispositivi.add(nuovoDispositivo);
-                System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
-                risposta = scanner.next();
-            } while (risposta.equalsIgnoreCase("si"));
+                nuovoDispositivo.setDisplay(scanner.nextInt());
+            }
+            listaDispositivi.add(nuovoDispositivo);
+            System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
+            risposta = scanner.next();
+        } while (risposta.equalsIgnoreCase("si"));
         //TODO add try catch here for answer si/no
 
-           try{
-            if (risposta.equals("no")) {
-                scanner.close();
+        if (risposta.equals("no"))
+            try {
+                {
+                    scanner.close();
+                }
+            } catch (IllegalStateException | NoSuchElementException e) {
+                System.out.println("Ops, carattere non consentito. Digita nuovamente la tua risposta!");
+                System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
+                aggiungiDispositivi(scanner);
             }
-        } catch (IllegalStateException | NoSuchElementException e){
-            System.out.println("Ops, carattere non consentito. Digita nuovamente la tua risposta!");
-            System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
-            aggiungiDispositivi(scanner);
-        }
     }
 
     public List<Dispositivi> stampaDispositivi(List<Dispositivi> listaDispositivi) {
         for (Dispositivi dispositivo : listaDispositivi) {
 
-            if ( dispositivo.getDispositivo()== null) {
+            if (dispositivo.getDispositivo() == null) {
                 System.out.println("il dispositivo non è disponibile");
             }
-            if(listaDispositivi.isEmpty()){
-                System.out.println("Il magazzino è vuoto" );
+            if (listaDispositivi.isEmpty()) {
+                System.out.println("Il magazzino è vuoto");
             }
-            System.out.println("Totale dispositivi presenti: "+ listaDispositivi.size());
+            System.out.println("Totale dispositivi presenti: " + listaDispositivi.size());
         }
         return listaDispositivi;
     }
-
+//todo change signature of every method
     public void ricercaProduttore(List<Dispositivi> listaDispositivi) {
         for (Dispositivi dispositivo : listaDispositivi) {
             if (dispositivo.getBrand() == null) {
@@ -128,7 +129,7 @@ public class Magazzino {
     }
 
     public List<Dispositivi> cercaPerPrezzoAcquisto(List<Dispositivi> listaDispositivi, double prezzoAcquistoDaCercare) {
-            List<Dispositivi> dispositiviRicerca = new ArrayList<>();
+        List<Dispositivi> dispositiviRicerca = new ArrayList<>();
         for (Dispositivi dispositivo : listaDispositivi) {
             if (dispositivo.getPrezzo() == prezzoAcquistoDaCercare) {
                 dispositiviRicerca.add(dispositivo);
@@ -139,9 +140,10 @@ public class Magazzino {
         }
         return dispositiviRicerca;
     }
-    public  List<Dispositivi> cercaPerRangePrezzo(List<Dispositivi> listaDispositivi, double prezzoMin, double prezzoMax){
+
+    public List<Dispositivi> cercaPerRangePrezzo(List<Dispositivi> listaDispositivi, double prezzoMin, double prezzoMax) {
         List<Dispositivi> dispotiviDiRicerca = new ArrayList<>();
-        for(Dispositivi dispositivo : listaDispositivi) {
+        for (Dispositivi dispositivo : listaDispositivi) {
             double prezzoDispotivo = dispositivo.getPrezzo();
             if (prezzoDispotivo >= prezzoMin && prezzoDispotivo <= prezzoMax) {
                 dispotiviDiRicerca.add(dispositivo);
@@ -156,7 +158,7 @@ public class Magazzino {
     }
 
 
-    public double calcolaSpesaMedia(List<Dispositivi> listaDispositivi){
+    public double calcolaSpesaMedia(List<Dispositivi> listaDispositivi) {
         if (listaDispositivi.isEmpty()) {
             System.out.println("La lista dei dispositivi è vuota, impossibile calcolare la spesa media.");
             return 0.0;
