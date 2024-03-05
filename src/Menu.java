@@ -164,7 +164,6 @@ public class Menu {
                         }
                         break;
 
-                        break;
                     case "b":
                         magazzino1.stampaDispositivi(magazzino1.listaDispositivi);
                         System.out.println("La lista di dispositivi contiene: " + magazzino1.listaDispositivi.size() + " elementi");
