@@ -1,43 +1,50 @@
 import Dispositivi.Dispositivi;
 
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Menu {
 
+    public Menu(Carrello carrello, Magazzino magazzino, Scanner scanner) {
+        //todo aggiungere variabili di ambiente per salvare valori mag carr
+    }
+
     public Menu() {
+
     }
 
     public void avviaMenu() {
         Scanner scanner = new Scanner(System.in);
         boolean continua = true;
+        try {
+            while (continua) {
+                System.out.println("Benvenuto nel menu principale:");
+                System.out.println("1. Gestisci Carrello");
+                System.out.println("2. Gestisci Magazzino");
+                System.out.println("3. Esci");
 
+                int scelta = scanner.nextInt();
 
-        while (continua) {
-            System.out.println("Benvenuto nel menu principale:");
-            System.out.println("1. Gestisci Carrello");
-            System.out.println("2. Gestisci Magazzino");
-            System.out.println("3. Esci");
-
-            int scelta = scanner.nextInt();
-
-            switch (scelta) {
-                case 1:
-                    gestisciCarrello(scanner);
-                    break;
-                case 2:
-                    gestisciMagazzino(scanner);
-                    break;
-                case 3:
-                    continua = false;
-                    break;
-                default:
-                    System.out.println("Scelta non valida. Riprova.");
-                    break;
+                switch (scelta) {
+                    case 1:
+                        gestisciCarrello(scanner);
+                        break;
+                    case 2:
+                        gestisciMagazzino(scanner);
+                        break;
+                    case 3:
+                        continua = false;
+                        break;
+                    default:
+                        System.out.println("Scelta non valida. Riprova.");
+                        break;
+                }
+                if (!continua) {
+                    scanner.close();
+                }
             }
-            if (!continua) {
-                scanner.close();
-            }
+        } catch (NoSuchElementException e) {
         }
     }
 
@@ -52,7 +59,7 @@ public class Menu {
         Carrello carrello = new Carrello();
         Dispositivi dispositivo = new Dispositivi();
 
-        String scelta = scanner.nextLine();
+        String scelta = scanner.next();
 
         switch (scelta) {
             case "a":
@@ -79,55 +86,132 @@ public class Menu {
     private void gestisciMagazzino(Scanner scanner) {
         Scanner scanner1 = new Scanner(System.in);
         boolean continua = true;
-        while (continua) {
-            System.out.println("Seleziona un'operazione:\n" +
-                    "a. aggiungi un dispositivo al magazzino,\n" +
-                    "b. visualizza tutti i dispositivi presenti nel magazzino,\n" +
-                    "c. per effettuare una ricerca per produttore,\n" +
-                    "d. per effettuare una ricerca per modello, \n" +
-                    "e. per effettuare una ricerca per prezzo di vendita,\n" +
-                    "f. per effettuare una ricerca per prezzo di acquisto,\n" +
-                    "g. per effettuare una ricerca con un range di prezzo,\n" +
-                    "h. per visualizzare il totale della spesa media");
-            Magazzino magazzino1 = new Magazzino();
-            String scelta = scanner.next();
+        try {
+            while (continua) {
+                System.out.println("Seleziona un'operazione:\n" +
+                        "a. aggiungi un dispositivo al magazzino,\n" +
+                        "b. visualizza tutti i dispositivi presenti nel magazzino,\n" +
+                        "c. per effettuare una ricerca per produttore,\n" +
+                        "d. per effettuare una ricerca per modello, \n" +
+                        "e. per effettuare una ricerca per prezzo di vendita,\n" +
+                        "f. per effettuare una ricerca per prezzo di acquisto,\n" +
+                        "g. per effettuare una ricerca con un range di prezzo,\n" +
+                        "h. per visualizzare il totale della spesa media");
+                Magazzino magazzino1 = new Magazzino();
+                String scelta = scanner.next();
 
-            switch (scelta) {
-                case "a":
-                    magazzino1.aggiungiDispositivi(scanner1);
-                    break;
-                case "b":
-                    magazzino1.stampaDispositivi(magazzino1.listaDispositivi);
-                    break;
-                case "c":
-                    magazzino1.ricercaProduttore(new ArrayList<>());
-                    break;
-                case "d":
-                    magazzino1.ricercaModello(new ArrayList<>());
-                    break;
-                case "e":
-                    magazzino1.cercaPerPrezzo(magazzino1.listaDispositivi, scanner.nextInt());
-                    break;
-                case "f":
-                    magazzino1.cercaPerPrezzoAcquisto(magazzino1.listaDispositivi, scanner.nextInt());
-                    break;
-                case "g":
-                    magazzino1.cercaPerRangePrezzo(magazzino1.listaDispositivi, scanner.nextInt(), scanner.nextInt());
-                    break;
-                case "h":
-                    magazzino1.calcolaSpesaMedia(magazzino1.listaDispositivi);
-                    break;
-                case "esc":
-                    continua = false;
-                    break;
+                switch (scelta) {
+                    case "a":
+                        magazzino1.aggiungiDispositivi(scanner1);
+                        String risposta;
+                        do {
+                            Dispositivi nuovoDispositivo = new Dispositivi();
+                            System.out.println("Inserisci il tipo di dispositivo che vuoi aggiungere:");
+                            nuovoDispositivo.setTipoDispositivo(scanner.nextLine());
+                            System.out.print("Inserisci il brand del dispositivo: ");
+                            nuovoDispositivo.setBrand(scanner.nextLine());
+                            System.out.print("Inserisci il modello del dispositivo: ");
+                            nuovoDispositivo.setModello(scanner.nextLine());
+                            System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
+                            try {
+                                nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
+                            } catch (NumberFormatException e) {
+                                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+                                System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
+                                nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
+                            }
 
-                default:
-                    System.out.println("Operazione non valida.");
-                    break;
+                            System.out.println("Inserisci il prezzo di vendita del dispositivo: ");
+                            try {
+                                nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
+                            } catch (NumberFormatException e) {
+                                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+                                System.out.print("Inserisci il prezzo di vendita del dispositivo: ");
+                                nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
+                            }
+                            System.out.println("Inserisci l' ID del dispositivo: ");
+                            try {
+                                nuovoDispositivo.setId(scanner.nextInt());
+                            } catch (NumberFormatException e) {
+                                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+                                System.out.println("Inserisci l' ID del dispositivo: ");
+                                nuovoDispositivo.setId(scanner.nextInt());
+                            }
+                            System.out.println("Inserisci lo spazio di archiviazione: ");
+                            try {
+                                nuovoDispositivo.setMemoria(scanner.nextInt());
+                            } catch (NumberFormatException e) {
+                                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+                                System.out.println("Inserisci lo spazio di archiviazione: ");
+                                nuovoDispositivo.setMemoria(scanner.nextInt());
+                            }
+                            System.out.println("Inserisci da dimensione del display:");
+                            try {
+                                nuovoDispositivo.setDisplay(scanner.nextInt());
+                            } catch (NumberFormatException e) {
+                                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+                                System.out.println("Inserisci da dimensione del display:");
+                                nuovoDispositivo.setDisplay(scanner.nextInt());
+                            }
+
+                            System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
+                            risposta = scanner.next();
+                        } while (risposta.equalsIgnoreCase("si"));
+                        //TODO add try catch here for answer si/no
+
+                        if (risposta.equalsIgnoreCase("no")) {
+                            scanner.close();
+                        }
+                        break;
+
+                        break;
+                    case "b":
+                        magazzino1.stampaDispositivi(magazzino1.listaDispositivi);
+                        System.out.println("La lista di dispositivi contiene: " + magazzino1.listaDispositivi.size() + " elementi");
+                        System.out.println(magazzino1.listaDispositivi);
+                        if (magazzino1.listaDispositivi.isEmpty() || magazzino1.listaDispositivi == null) {
+                            System.out.println("Il magazzino è vuoto");
+                        }
+                        break;
+                    case "c":
+                        System.out.println("Inserisci il nome del brand che desideri cercare...");
+                        System.out.println(magazzino1.ricercaProduttore(magazzino1.listaDispositivi));
+                        if (magazzino1.listaDispositivi.isEmpty()) {
+                            System.out.println("La tua ricerca non ha avuto risultati");
+                        }
+                        ;
+
+                        break;
+                    case "d":
+                        magazzino1.ricercaModello(new ArrayList<>());
+                        break;
+                    case "e":
+                        magazzino1.cercaPerPrezzo(magazzino1.listaDispositivi, scanner.nextInt());
+                        break;
+                    case "f":
+                        magazzino1.cercaPerPrezzoAcquisto(magazzino1.listaDispositivi, scanner.nextInt());
+                        break;
+                    case "g":
+                        magazzino1.cercaPerRangePrezzo(magazzino1.listaDispositivi, scanner.nextInt(), scanner.nextInt());
+                        break;
+                    case "h":
+                        magazzino1.calcolaSpesaMedia(magazzino1.listaDispositivi);
+                        break;
+                    case "esc":
+                        continua = false;
+                        break;
+
+                    default:
+                        System.out.println("Operazione non valida.");
+                        break;
+                }
             }
+        } catch (NoSuchElementException e) {
+            System.out.println("Operazione non valida");
         }
     }
 
+    //todo metter in main
     public static void main(String[] args) {
         Menu menu = new Menu();
         menu.avviaMenu();
