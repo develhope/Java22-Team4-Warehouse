@@ -8,17 +8,17 @@ public class Carrello {
     public Carrello() {
         this.listaProdotti = new ArrayList<>();
     }
-
-    public void aggiungiDispositivo(Dispositivi dispositivo) {
-        listaProdotti.add(dispositivo);
-        System.out.println("Dispositivo aggiunto al carrello: " + dispositivo.getModello());
+    Magazzino magazzino = new Magazzino();
+    public String aggiungiDispositivo(Dispositivi dispositivo) {
+        magazzino.listaDispositivi.add(dispositivo);
+        return "Dispositivo aggiunto al carrello: " + dispositivo.getModello();
     }
 
-    public void rimuoviDispositivo(Dispositivi dispositivo) {
+    public String rimuoviDispositivo(Dispositivi dispositivo) {
         if (listaProdotti.remove(dispositivo)) {
-            System.out.println("Dispositivo rimosso dal carrello: " + dispositivo.getModello());
+            return "Dispositivo rimosso dal carrello: " + dispositivo.getModello();
         } else {
-            System.out.println("Il dispositivo non è presente nel carrello");
+            return "Il dispositivo non è presente nel carrello";
         }
     }
 
@@ -30,21 +30,26 @@ public class Carrello {
         return totale;
     }
 
-    public void svuotaCarrello() {
+    public String svuotaCarrello() {
         listaProdotti.clear();
-        System.out.println("Carrello svuotato");
+        return "Carrello svuotato";
     }
 
-    public void stampaElementiCarrello() {
+    public List<String> stampaElementiCarrello() {
+        List<String> modelliDispositivi = new ArrayList<>();
+
         if (listaProdotti.isEmpty()) {
-            System.out.println("Il carrello è vuoto");
+            modelliDispositivi.add("Il carrello è vuoto");
         } else {
-            System.out.println("Elementi nel carrello:");
+            modelliDispositivi.add("Elementi nel carrello:");
             for (Dispositivi dispositivo : listaProdotti) {
-                System.out.println(dispositivo.getModello());
+                modelliDispositivi.add(dispositivo.getModello());
             }
         }
+
+        return modelliDispositivi;
     }
-}
+    }
+
 
 
