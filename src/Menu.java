@@ -102,7 +102,8 @@ public class Menu {
 
                 switch (scelta) {
                     case "a":
-                        magazzino1.aggiungiDispositivi(scanner1);
+                        magazzino1.aggiungiDispositivi(scanner);
+
                         String risposta;
                         do {
                             Dispositivi nuovoDispositivo = new Dispositivi();
@@ -160,7 +161,7 @@ public class Menu {
                         //TODO add try catch here for answer si/no
 
                         if (risposta.equalsIgnoreCase("no")) {
-                            scanner.close();
+                            break;
                         }
                         break;
 
@@ -185,16 +186,29 @@ public class Menu {
                         magazzino1.ricercaModello(new ArrayList<>());
                         break;
                     case "e":
+                        System.out.println("Inserisci il prezzo di vendita che desideri cercare...");
                         magazzino1.cercaPerPrezzo(magazzino1.listaDispositivi, scanner.nextInt());
                         break;
                     case "f":
+                        System.out.println("Inserisci il prezzo di acquisto che desideri cercare...");
                         magazzino1.cercaPerPrezzoAcquisto(magazzino1.listaDispositivi, scanner.nextInt());
                         break;
                     case "g":
-                        magazzino1.cercaPerRangePrezzo(magazzino1.listaDispositivi, scanner.nextInt(), scanner.nextInt());
+                        System.out.println("Inserisci il prezzo minimo del range:");
+                        double min = scanner.nextDouble();
+                        System.out.println("Inserisci il prezzo massimo del range:");
+                        double max = scanner.nextDouble();
+                        magazzino1.cercaPerRangePrezzo(magazzino1.listaDispositivi, min, max);
                         break;
                     case "h":
-                        magazzino1.calcolaSpesaMedia(magazzino1.listaDispositivi);
+                        //magazzino1.calcolaSpesaMedia(magazzino1.listaDispositivi);
+                        double spesaMedia = magazzino1.calcolaSpesaMedia(magazzino1.listaDispositivi);
+                        if (spesaMedia == 0.0) {
+                            System.out.println("Impossibile calcolare la spesa media, nessun dispositivo presente.");
+                        } else {
+                            System.out.println("La spesa media dei dispositivi è: " + spesaMedia);
+                        }
+
                         break;
                     case "esc":
                         continua = false;
@@ -204,12 +218,13 @@ public class Menu {
                         System.out.println("Operazione non valida.");
                         break;
                 }
+
             }
-        } catch (NoSuchElementException e) {
-            System.out.println("Operazione non valida");
+            while (continua) ;
+        } finally {
+
         }
     }
-
     //todo metter in main
     public static void main(String[] args) {
         Menu menu = new Menu();
