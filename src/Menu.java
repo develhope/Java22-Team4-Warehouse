@@ -102,7 +102,6 @@ Scanner scanner = new Scanner(System.in);
 
                 switch (scelta) {
                     case "a":
-                        magazzino.aggiungiDispositivi(scanner);
 
                         String risposta;
                         do {
@@ -154,8 +153,10 @@ Scanner scanner = new Scanner(System.in);
                                 System.out.println("Inserisci da dimensione del display:");
                                 nuovoDispositivo.setDisplay(scanner.nextInt());
                             }
-
+                            magazzino.aggiungiDispositivi(nuovoDispositivo);
+                           //todo aggiungere una risposta immediata sul menu
                             System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
+                            // todo snellire il codice
                             risposta = scanner.next();
                         } while (risposta.equalsIgnoreCase("si"));
                         if (risposta.equalsIgnoreCase("no")) {
