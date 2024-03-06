@@ -7,12 +7,13 @@ import java.util.Scanner;
 
 public class Magazzino {
 
-    protected List<Dispositivi> listaDispositivi = new ArrayList<>();
+    public List<Dispositivi> listaDispositivi = new ArrayList<>();
 
-    public void aggiungiDispositivi(Scanner scanner) {
+    public List<Dispositivi> aggiungiDispositivi(Scanner scanner) {
 
         Dispositivi nuovoDispositivo = new Dispositivi();
         listaDispositivi.add(nuovoDispositivo);
+        return listaDispositivi;
 }
 
 public List<Dispositivi> stampaDispositivi(List<Dispositivi> listaDispositivi) {
@@ -42,7 +43,6 @@ public void ricercaModello(List<Dispositivi> listaDispositivi) {
     }
 }
 
-/* Un metodo che permetta la ricerca per prezzo di vendita*/
 
 public List<Dispositivi> cercaPerPrezzo(List<Dispositivi> listaDispositivi, double prezzoDaCercare) {
     List<Dispositivi> dispositiviRicerca = new ArrayList<>();

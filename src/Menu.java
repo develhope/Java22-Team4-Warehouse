@@ -5,12 +5,13 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Menu {
-
+Carrello carrello = new Carrello();
+Magazzino magazzino = new Magazzino();
+Scanner scanner = new Scanner(System.in);
     public Menu(Carrello carrello, Magazzino magazzino, Scanner scanner) {
-        //todo aggiungere variabili di ambiente per salvare valori mag carr
-    }
-
-    public Menu() {
+        this.carrello = carrello;
+        this.magazzino = magazzino;
+        this.scanner = scanner;
 
     }
 
@@ -84,7 +85,7 @@ public class Menu {
     }
 
     private void gestisciMagazzino(Scanner scanner) {
-        Scanner scanner1 = new Scanner(System.in);
+
         boolean continua = true;
         try {
             while (continua) {
@@ -97,12 +98,11 @@ public class Menu {
                         "f. per effettuare una ricerca per prezzo di acquisto,\n" +
                         "g. per effettuare una ricerca con un range di prezzo,\n" +
                         "h. per visualizzare il totale della spesa media");
-                Magazzino magazzino1 = new Magazzino();
                 String scelta = scanner.next();
 
                 switch (scelta) {
                     case "a":
-                        magazzino1.aggiungiDispositivi(scanner);
+                        magazzino.aggiungiDispositivi(scanner);
 
                         String risposta;
                         do {
@@ -158,51 +158,49 @@ public class Menu {
                             System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
                             risposta = scanner.next();
                         } while (risposta.equalsIgnoreCase("si"));
-                        //TODO add try catch here for answer si/no
-
                         if (risposta.equalsIgnoreCase("no")) {
                             break;
                         }
                         break;
 
                     case "b":
-                        magazzino1.stampaDispositivi(magazzino1.listaDispositivi);
-                        System.out.println("La lista di dispositivi contiene: " + magazzino1.listaDispositivi.size() + " elementi");
-                        System.out.println(magazzino1.listaDispositivi);
-                        if (magazzino1.listaDispositivi.isEmpty() || magazzino1.listaDispositivi == null) {
+                        magazzino.stampaDispositivi(magazzino.listaDispositivi);
+                        System.out.println("La lista di dispositivi contiene: " + magazzino.listaDispositivi.size() + " elementi");
+                        System.out.println(magazzino.listaDispositivi);
+                        if (magazzino.listaDispositivi.isEmpty() || magazzino.listaDispositivi == null) {
                             System.out.println("Il magazzino è vuoto");
                         }
                         break;
                     case "c":
                         System.out.println("Inserisci il nome del brand che desideri cercare...");
-                        System.out.println(magazzino1.ricercaProduttore(magazzino1.listaDispositivi));
-                        if (magazzino1.listaDispositivi.isEmpty()) {
+                        System.out.println(magazzino.ricercaProduttore(magazzino.listaDispositivi));
+                        if (magazzino.listaDispositivi.isEmpty()) {
                             System.out.println("La tua ricerca non ha avuto risultati");
                         }
                         ;
 
                         break;
                     case "d":
-                        magazzino1.ricercaModello(new ArrayList<>());
+                        magazzino.ricercaModello(new ArrayList<>());
                         break;
                     case "e":
                         System.out.println("Inserisci il prezzo di vendita che desideri cercare...");
-                        magazzino1.cercaPerPrezzo(magazzino1.listaDispositivi, scanner.nextInt());
+                        magazzino.cercaPerPrezzo(magazzino.listaDispositivi, scanner.nextInt());
                         break;
                     case "f":
                         System.out.println("Inserisci il prezzo di acquisto che desideri cercare...");
-                        magazzino1.cercaPerPrezzoAcquisto(magazzino1.listaDispositivi, scanner.nextInt());
+                        magazzino.cercaPerPrezzoAcquisto(magazzino.listaDispositivi, scanner.nextInt());
                         break;
                     case "g":
                         System.out.println("Inserisci il prezzo minimo del range:");
                         double min = scanner.nextDouble();
                         System.out.println("Inserisci il prezzo massimo del range:");
                         double max = scanner.nextDouble();
-                        magazzino1.cercaPerRangePrezzo(magazzino1.listaDispositivi, min, max);
+                        magazzino.cercaPerRangePrezzo(magazzino.listaDispositivi, min, max);
                         break;
                     case "h":
                         //magazzino1.calcolaSpesaMedia(magazzino1.listaDispositivi);
-                        double spesaMedia = magazzino1.calcolaSpesaMedia(magazzino1.listaDispositivi);
+                        double spesaMedia = magazzino.calcolaSpesaMedia(magazzino.listaDispositivi);
                         if (spesaMedia == 0.0) {
                             System.out.println("Impossibile calcolare la spesa media, nessun dispositivo presente.");
                         } else {
@@ -221,7 +219,7 @@ public class Menu {
 
             }
             while (continua) ;
-        } finally {
+        }finally {
 
         }
     }
