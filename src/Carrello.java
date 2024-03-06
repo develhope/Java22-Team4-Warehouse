@@ -3,7 +3,7 @@ import java.util.List;
 import Dispositivi.*;
 
 public class Carrello {
-    private List<Dispositivi> listaProdotti;
+    public List<Dispositivi> listaProdotti;
 
     public Carrello() {
         this.listaProdotti = new ArrayList<>();
