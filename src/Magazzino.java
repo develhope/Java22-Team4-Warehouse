@@ -9,9 +9,8 @@ public class Magazzino {
 
     public List<Dispositivi> listaDispositivi = new ArrayList<>();
 
-    public List<Dispositivi> aggiungiDispositivi(Scanner scanner) {
+    public List<Dispositivi> aggiungiDispositivi(  Dispositivi nuovoDispositivo) {
 
-        Dispositivi nuovoDispositivo = new Dispositivi();
         listaDispositivi.add(nuovoDispositivo);
         return listaDispositivi;
 }
