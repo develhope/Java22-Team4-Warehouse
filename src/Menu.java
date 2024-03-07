@@ -1,13 +1,15 @@
 import Dispositivi.Dispositivi;
+import Magazzino.Magazzino;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Menu {
-Carrello carrello = new Carrello();
-Magazzino magazzino = new Magazzino();
-Scanner scanner = new Scanner(System.in);
+    Carrello carrello = new Carrello();
+    Magazzino magazzino = new Magazzino();
+    Scanner scanner = new Scanner(System.in);
+
     public Menu(Carrello carrello, Magazzino magazzino, Scanner scanner) {
         this.carrello = carrello;
         this.magazzino = magazzino;
@@ -22,7 +24,7 @@ Scanner scanner = new Scanner(System.in);
             while (continua) {
                 System.out.println("Benvenuto nel menu principale:");
                 System.out.println("1. Gestisci Carrello");
-                System.out.println("2. Gestisci Magazzino");
+                System.out.println("2. Gestisci Magazzino.Magazzino");
                 System.out.println("3. Esci");
 
                 int scelta = scanner.nextInt();
@@ -98,70 +100,34 @@ Scanner scanner = new Scanner(System.in);
                         "f. per effettuare una ricerca per prezzo di acquisto,\n" +
                         "g. per effettuare una ricerca con un range di prezzo,\n" +
                         "h. per visualizzare il totale della spesa media");
-                String scelta = scanner.next();
+                String scelta = scanner.next().toLowerCase();
 
                 switch (scelta) {
                     case "a":
+                        magazzino.aggiungiDispositivi(new Dispositivi());
 
                         String risposta;
-                        do {
+                        do
+
+                        {
                             Dispositivi nuovoDispositivo = new Dispositivi();
                             System.out.println("Inserisci il tipo di dispositivo che vuoi aggiungere:");
-                            nuovoDispositivo.setTipoDispositivo(scanner.nextLine());
+                            nuovoDispositivo.setDispositivo(scanner.nextLine());
                             System.out.print("Inserisci il brand del dispositivo: ");
                             nuovoDispositivo.setBrand(scanner.nextLine());
                             System.out.print("Inserisci il modello del dispositivo: ");
                             nuovoDispositivo.setModello(scanner.nextLine());
                             System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
-                            try {
-                                nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
-                            } catch (NumberFormatException e) {
-                                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
-                                System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
-                                nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
-                            }
 
-                            System.out.println("Inserisci il prezzo di vendita del dispositivo: ");
-                            try {
-                                nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
-                            } catch (NumberFormatException e) {
-                                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
-                                System.out.print("Inserisci il prezzo di vendita del dispositivo: ");
-                                nuovoDispositivo.setPrezzo(Double.parseDouble(scanner.nextLine()));
-                            }
-                            System.out.println("Inserisci l' ID del dispositivo: ");
-                            try {
-                                nuovoDispositivo.setId(scanner.nextInt());
-                            } catch (NumberFormatException e) {
-                                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
-                                System.out.println("Inserisci l' ID del dispositivo: ");
-                                nuovoDispositivo.setId(scanner.nextInt());
-                            }
-                            System.out.println("Inserisci lo spazio di archiviazione: ");
-                            try {
-                                nuovoDispositivo.setMemoria(scanner.nextInt());
-                            } catch (NumberFormatException e) {
-                                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
-                                System.out.println("Inserisci lo spazio di archiviazione: ");
-                                nuovoDispositivo.setMemoria(scanner.nextInt());
-                            }
-                            System.out.println("Inserisci da dimensione del display:");
-                            try {
-                                nuovoDispositivo.setDisplay(scanner.nextInt());
-                            } catch (NumberFormatException e) {
-                                System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
-                                System.out.println("Inserisci da dimensione del display:");
-                                nuovoDispositivo.setDisplay(scanner.nextInt());
-                            }
+                            nuovoDispositivo.setDisplay(scanner.next());
                             magazzino.aggiungiDispositivi(nuovoDispositivo);
-                           //todo aggiungere una risposta immediata sul menu
+                            //todo aggiungere una risposta immediata sul menu
                             System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
                             // todo snellire il codice
                             risposta = scanner.next();
-                        } while (risposta.equalsIgnoreCase("si"));
-                        if (risposta.equalsIgnoreCase("no")) {
-                            break;
-                        }
+                        } while(risposta.equalsIgnoreCase("si"));
+                        if(risposta.equalsIgnoreCase("no")) { break; }
+
                         break;
 
                     case "b":
@@ -220,10 +186,8 @@ Scanner scanner = new Scanner(System.in);
 
             }
             while (continua) ;
-        }finally {
-
+        } finally {
         }
     }
-
-
 }
+

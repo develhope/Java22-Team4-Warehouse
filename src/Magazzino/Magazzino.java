@@ -1,4 +1,7 @@
+package Magazzino;
+
 import Dispositivi.Dispositivi;
+import Magazzino.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +12,7 @@ public class Magazzino {
 
     public List<Dispositivi> listaDispositivi = new ArrayList<>();
 
-    public List<Dispositivi> aggiungiDispositivi(  Dispositivi nuovoDispositivo) {
-
+    public List<Dispositivi> aggiungiDispositivi( Dispositivi nuovoDispositivo) {
         listaDispositivi.add(nuovoDispositivo);
         return listaDispositivi;
 }
@@ -19,7 +21,6 @@ public List<Dispositivi> stampaDispositivi(List<Dispositivi> listaDispositivi) {
     return listaDispositivi;
 }
 
-//todo change signature of every method
 public List<String> ricercaProduttore(List<Dispositivi> listaDispositivi) {
     String risposta = "";
     List<String> listaProduttori = new ArrayList<>();
@@ -33,20 +34,21 @@ public List<String> ricercaProduttore(List<Dispositivi> listaDispositivi) {
     return listaProduttori;
 }
 
-public void ricercaModello(List<Dispositivi> listaDispositivi) {
+public List<Dispositivi> ricercaModello(List<Dispositivi> listaDispositivi) {
     for (Dispositivi dispositivo : listaDispositivi) {
         if (dispositivo.getModello() == null) {
             System.out.println("il dispositivo non è disponibile");
         }
         System.out.println(dispositivo.getModello());
     }
-}
+return listaDispositivi;
+    }
 
 
 public List<Dispositivi> cercaPerPrezzo(List<Dispositivi> listaDispositivi, double prezzoDaCercare) {
     List<Dispositivi> dispositiviRicerca = new ArrayList<>();
     for (Dispositivi dispositivo : listaDispositivi) {
-        if (dispositivo.getPrezzo() == prezzoDaCercare) {
+        if (dispositivo.getPrezzoVendita() == prezzoDaCercare) {
             dispositiviRicerca.add(dispositivo);
         }
     }
@@ -60,7 +62,7 @@ public List<Dispositivi> cercaPerPrezzo(List<Dispositivi> listaDispositivi, doub
 public List<Dispositivi> cercaPerPrezzoAcquisto(List<Dispositivi> listaDispositivi, double prezzoAcquistoDaCercare) {
     List<Dispositivi> dispositiviRicerca = new ArrayList<>();
     for (Dispositivi dispositivo : listaDispositivi) {
-        if (dispositivo.getPrezzo() == prezzoAcquistoDaCercare) {
+        if (dispositivo.getPrezzoVendita() == prezzoAcquistoDaCercare) {
             dispositiviRicerca.add(dispositivo);
         }
     }
@@ -73,7 +75,7 @@ public List<Dispositivi> cercaPerPrezzoAcquisto(List<Dispositivi> listaDispositi
 public List<Dispositivi> cercaPerRangePrezzo(List<Dispositivi> listaDispositivi, double prezzoMin, double prezzoMax) {
     List<Dispositivi> dispotiviDiRicerca = new ArrayList<>();
     for (Dispositivi dispositivo : listaDispositivi) {
-        double prezzoDispotivo = dispositivo.getPrezzo();
+        double prezzoDispotivo = dispositivo.getPrezzoVendita();
         if (prezzoDispotivo >= prezzoMin && prezzoDispotivo <= prezzoMax) {
             dispotiviDiRicerca.add(dispositivo);
         }
@@ -94,7 +96,7 @@ public double calcolaSpesaMedia(List<Dispositivi> listaDispositivi) {
     }
     double totaleSpesa = 0;
     for (Dispositivi dispositivo : listaDispositivi) {
-        totaleSpesa += dispositivo.getPrezzo();
+        totaleSpesa += dispositivo.getPrezzoVendita();
     }
 
     return totaleSpesa / listaDispositivi.size();

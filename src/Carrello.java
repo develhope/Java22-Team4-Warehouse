@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import Dispositivi.*;
+import Magazzino.Magazzino;
 
 public class Carrello {
     public List<Dispositivi> listaProdotti;

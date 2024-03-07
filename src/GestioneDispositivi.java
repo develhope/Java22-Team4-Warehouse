@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import Dispositivi.*;
+import Magazzino.Magazzino;
 
 public class GestioneDispositivi {
     public List<Dispositivi> listaProdotti;

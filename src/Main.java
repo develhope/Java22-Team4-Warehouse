@@ -1,3 +1,5 @@
+import Magazzino.Magazzino;
+
 import java.util.Scanner;
 
 public class Main {
