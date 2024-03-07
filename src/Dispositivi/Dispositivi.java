@@ -34,6 +34,7 @@ public class Dispositivi {
         this.prezzoVendita = prezzoVendita;
     }
     public Dispositivi(Scanner scanner){
+        this.id = UUID.randomUUID().toString();
         this.dispositivo = scanner.next();
         this.brand = scanner.next();
         this.modello = scanner.next();
@@ -109,7 +110,7 @@ public class Dispositivi {
     public void setPrezzoVendita(Double prezzoVendita) {
         this.prezzoVendita = prezzoVendita;
     }
-
+//Autoincremento dell'id
     public String getId() {
         return id;
     }
