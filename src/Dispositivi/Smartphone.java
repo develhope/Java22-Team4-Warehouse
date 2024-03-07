@@ -1,8 +1,8 @@
 package Dispositivi;
 
 public class Smartphone extends Dispositivi{
-    public Smartphone(String tipoDispositivo, String brand, int display, String modello, String descrizione, double prezzo, double memoria, double prezzoAcquisto) {
-        super(tipoDispositivo, brand, Integer.parseInt(String.valueOf(display)), modello, descrizione, prezzo, memoria, prezzoAcquisto);
+    public Smartphone(String dispositivo, String brand, String display, String modello, String descrizione, double prezzo, String memoria, double prezzoAcquisto) {
+        super(dispositivo, brand,display, modello, descrizione, prezzo, memoria, prezzoAcquisto);
     }
 
 }

@@ -124,8 +124,8 @@ public class Dispositivi {
                         ", Descrizione: " + descrizione +
                         ", Display: " + display +
                         ", Memoria: " + memoria +
-                        ", Prezzo d'Acquisto " + prezzoAcquisto +
-                        ", Prezzo: " + prezzoVendita +
+                        ", Prezzo d'Acquisto: " + prezzoAcquisto +" Euro " +
+                        ", Prezzo di Vendita: " + prezzoVendita + " Euro "+
                         ", Id: " + id + "\n";
     }
 

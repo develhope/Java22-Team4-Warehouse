@@ -26,7 +26,7 @@ public class Carrello {
     public double calcolaTotale() {
         double totale = 0;
         for (Dispositivi dispositivo : listaProdotti) {
-            totale += dispositivo.getPrezzo();
+            totale += dispositivo.getPrezzoVendita();
         }
         return totale;
     }

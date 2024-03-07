@@ -107,26 +107,36 @@ public class Menu {
                         magazzino.aggiungiDispositivi(new Dispositivi());
 
                         String risposta;
-                        do
-
-                        {
-                            Dispositivi nuovoDispositivo = new Dispositivi();
-                            System.out.println("Inserisci il tipo di dispositivo che vuoi aggiungere:");
-                            nuovoDispositivo.setDispositivo(scanner.nextLine());
-                            System.out.print("Inserisci il brand del dispositivo: ");
-                            nuovoDispositivo.setBrand(scanner.nextLine());
-                            System.out.print("Inserisci il modello del dispositivo: ");
-                            nuovoDispositivo.setModello(scanner.nextLine());
-                            System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
-
-                            nuovoDispositivo.setDisplay(scanner.next());
-                            magazzino.aggiungiDispositivi(nuovoDispositivo);
-                            //todo aggiungere una risposta immediata sul menu
-                            System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
-                            // todo snellire il codice
-                            risposta = scanner.next();
-                        } while(risposta.equalsIgnoreCase("si"));
-                        if(risposta.equalsIgnoreCase("no")) { break; }
+                        try {
+                            do {
+                                Dispositivi nuovoDispositivo = new Dispositivi();
+                                System.out.println("Inserisci il tipo di dispositivo che vuoi aggiungere:");
+                                nuovoDispositivo.setDispositivo(scanner.nextLine());
+                                System.out.print("Inserisci il brand del dispositivo: ");
+                                nuovoDispositivo.setBrand(scanner.nextLine());
+                                System.out.print("Inserisci il modello del dispositivo: ");
+                                nuovoDispositivo.setModello(scanner.nextLine());
+                                System.out.println("Inserisci una breve descrizione del dispositivo: ");
+                                nuovoDispositivo.setDescrizione(scanner.nextLine());
+                                System.out.println("Inserisci la dimensione del display: ");
+                                nuovoDispositivo.setDisplay(scanner.nextLine());
+                                System.out.println("Inserisci lo spazio di archiviazione del dispositivo:");
+                                nuovoDispositivo.setMemoria(scanner.nextLine());
+                                System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
+                                nuovoDispositivo.setPrezzoAcquisto(scanner.nextDouble());
+                                System.out.println("Inserisci il prezzo di vendita al dettaglio del dispositivo:");
+                                nuovoDispositivo.setPrezzoVendita(scanner.nextDouble());
+                                magazzino.aggiungiDispositivi(nuovoDispositivo);
+                                System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
+                                // todo snellire il codice
+                                risposta = scanner.next();
+                            } while (risposta.equalsIgnoreCase("si"));
+                            if (risposta.equalsIgnoreCase("no")) {
+                                break;
+                            }
+                        }catch (NumberFormatException e){
+                            System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+                        }
 
                         break;
 

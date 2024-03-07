@@ -1,7 +1,7 @@
 package Dispositivi;
 
 public class Tablet extends Dispositivi{
-    public Tablet(String tipoDispositivo, String brand, int display, String modello, String descrizione, double prezzo, double memoria, double prezzoAcquisto) {
-        super(tipoDispositivo, brand, Integer.parseInt(String.valueOf(display)), modello, descrizione, prezzo, memoria, prezzoAcquisto);
+    public Tablet(String dispositivo, String brand, String display, String modello, String descrizione, double prezzoVendita, String memoria, double prezzoAcquisto) {
+        super(dispositivo, brand, display, modello, descrizione, prezzoVendita, memoria, prezzoAcquisto);
     }
 }

@@ -14,7 +14,7 @@
 //        try {
 //            nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
 //        } catch (NumberFormatException e) {
-//            System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+//            System.out.println();
 //            System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
 //            nuovoDispositivo.setPrezzoAcquisto(Double.parseDouble(scanner.nextLine()));
 //        }
