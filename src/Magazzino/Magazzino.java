@@ -15,7 +15,7 @@ public class Magazzino {
 public List<Dispositivi> stampaDispositivi(List<Dispositivi> listaDispositivi) {
     return listaDispositivi;
 }
-
+//TODO: CAMBIO NOME METODO - SOSTITUZIONE METODO CON UNO SEMPLIFICATO CHE HA SOLO GETBRAND
 public List<String> ricercaProduttore(List<Dispositivi> listaDispositivi) {
     String risposta = "";
     List<String> listaProduttori = new ArrayList<>();
