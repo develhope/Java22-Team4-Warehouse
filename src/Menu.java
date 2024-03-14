@@ -104,62 +104,17 @@ public class Menu {
 
                 switch (scelta) {
                     case "a":
-                        magazzino.aggiungiDispositivi(new Dispositivi());
-
-                        String risposta;
-                        try {
-                            do {
-                                Dispositivi nuovoDispositivo = new Dispositivi();
-                                System.out.println("Inserisci il tipo di dispositivo che vuoi aggiungere:");
-                                nuovoDispositivo.setDispositivo(scanner.nextLine());
-                                System.out.print("Inserisci il brand del dispositivo: ");
-                                nuovoDispositivo.setBrand(scanner.nextLine());
-                                System.out.print("Inserisci il modello del dispositivo: ");
-                                nuovoDispositivo.setModello(scanner.nextLine());
-                                System.out.println("Inserisci una breve descrizione del dispositivo: ");
-                                nuovoDispositivo.setDescrizione(scanner.nextLine());
-                                System.out.println("Inserisci la dimensione del display: ");
-                                nuovoDispositivo.setDisplay(scanner.nextLine());
-                                System.out.println("Inserisci lo spazio di archiviazione del dispositivo:");
-                                nuovoDispositivo.setMemoria(scanner.nextLine());
-                                System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
-                                nuovoDispositivo.setPrezzoAcquisto(scanner.nextDouble());
-                                System.out.println("Inserisci il prezzo di vendita al dettaglio del dispositivo:");
-                                nuovoDispositivo.setPrezzoVendita(scanner.nextDouble());
-                                magazzino.aggiungiDispositivi(nuovoDispositivo);
-                                System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
-                                // todo snellire il codice
-                                risposta = scanner.next();
-                            } while (risposta.equalsIgnoreCase("si"));
-                            if (risposta.equalsIgnoreCase("no")) {
-                                break;
-                            }
-                        }catch (NumberFormatException e){
-                            System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
-                        }
-
+                        executeCaseA(scanner);
                         break;
 
                     case "b":
-                        magazzino.stampaDispositivi(magazzino.listaDispositivi);
-                        System.out.println("La lista di dispositivi contiene: " + magazzino.listaDispositivi.size() + " elementi");
-                        System.out.println(magazzino.listaDispositivi);
-                        if (magazzino.listaDispositivi.isEmpty() || magazzino.listaDispositivi == null) {
-                            System.out.println("Il magazzino è vuoto");
-                        }
+                        executeCaseB();
                         break;
                     case "c":
-                        System.out.println("Inserisci il nome del brand che desideri cercare...");
-
-                        System.out.println(magazzino.stampaListaProduttori());
-                        if (magazzino.listaDispositivi.isEmpty()) {
-                            System.out.println("La tua ricerca non ha avuto risultati");
-                        }
-                        ;
-
+                        axecuteCaseC(scanner);
                         break;
                     case "d":
-                        magazzino.ricercaModello();
+                        magazzino.ricercaModello(scanner.nextLine());
                         break;
                     case "e":
                         System.out.println("Inserisci il prezzo di vendita che desideri cercare...");
@@ -199,6 +154,63 @@ public class Menu {
             while (continua) ;
         } finally {
         }
+    }
+
+    private void axecuteCaseC(Scanner scanner) {
+        magazzino.ricercaProduttore(scanner.nextLine());
+        System.out.println("Inserisci il nome del brand che desideri cercare...");
+
+        System.out.println(magazzino.ricercaProduttore(scanner.nextLine()));
+        if (magazzino.listaDispositivi.isEmpty()) {
+            System.out.println("La tua ricerca non ha avuto risultati");
+        }
+    }
+
+    private void executeCaseB() {
+        magazzino.stampaDispositivi(magazzino.listaDispositivi);
+        System.out.println("La lista di dispositivi contiene: " + magazzino.listaDispositivi.size() + " elementi");
+        System.out.println(magazzino.listaDispositivi);
+        if (magazzino.listaDispositivi.isEmpty()) {
+            System.out.println("Il magazzino è vuoto");
+        }
+    }
+
+    private void executeCaseA(Scanner scanner) {
+        magazzino.aggiungiDispositivi(new Dispositivi());
+
+        String risposta;
+        try {
+            do {
+                Dispositivi nuovoDispositivo = new Dispositivi();
+                System.out.println("Inserisci il tipo di dispositivo che vuoi aggiungere:");
+                nuovoDispositivo.setDispositivo(scanner.nextLine());
+                System.out.print("Inserisci il brand del dispositivo: ");
+                nuovoDispositivo.setBrand(scanner.nextLine());
+                System.out.print("Inserisci il modello del dispositivo: ");
+                nuovoDispositivo.setModello(scanner.nextLine());
+                System.out.println("Inserisci una breve descrizione del dispositivo: ");
+                nuovoDispositivo.setDescrizione(scanner.nextLine());
+                System.out.println("Inserisci la dimensione del display: ");
+                nuovoDispositivo.setDisplay(scanner.nextLine());
+                System.out.println("Inserisci lo spazio di archiviazione del dispositivo:");
+                nuovoDispositivo.setMemoria(scanner.nextLine());
+                System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
+                nuovoDispositivo.setPrezzoAcquisto(scanner.nextDouble());
+                System.out.println("Inserisci il prezzo di vendita al dettaglio del dispositivo:");
+                nuovoDispositivo.setPrezzoVendita(scanner.nextDouble());
+                magazzino.aggiungiDispositivi(nuovoDispositivo);
+                System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
+                // todo snellire il codice
+                risposta = scanner.next();
+            } while (risposta.equalsIgnoreCase("si"));
+            if (risposta.equalsIgnoreCase("no")) {
+                return;
+            }
+        }catch (NumberFormatException e){
+            System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
+        }
+
+        return;
     }
 }
 

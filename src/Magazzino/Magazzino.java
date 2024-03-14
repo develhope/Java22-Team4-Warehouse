@@ -30,14 +30,14 @@ public class Magazzino {
         return listaRisultato;
     }
 
-    public List<Dispositivi> ricercaModello() {
+    public List<Dispositivi> ricercaModello(String produttore) {
+        List<Dispositivi> listaRisultato = new ArrayList<>();
         for (Dispositivi dispositivo : listaDispositivi) {
-            if (dispositivo.getModello() == null) {
-                System.out.println("il dispositivo non è disponibile");
+            if(dispositivo.getModello().equalsIgnoreCase(produttore)){
+                listaRisultato.add(dispositivo);
             }
-            System.out.println(dispositivo.getModello());
         }
-        return listaDispositivi;
+        return listaRisultato;
     }
 
 
