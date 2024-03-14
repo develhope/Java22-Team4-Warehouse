@@ -150,7 +150,8 @@ public class Menu {
                         break;
                     case "c":
                         System.out.println("Inserisci il nome del brand che desideri cercare...");
-                        System.out.println(magazzino.ricercaProduttore(magazzino.listaDispositivi));
+                        System.out.println(magazzino.ricercaProduttore());
+                        System.out.println(magazzino.stampaListaProduttori());
                         if (magazzino.listaDispositivi.isEmpty()) {
                             System.out.println("La tua ricerca non ha avuto risultati");
                         }
@@ -158,7 +159,7 @@ public class Menu {
 
                         break;
                     case "d":
-                        magazzino.ricercaModello(new ArrayList<>());
+                        magazzino.ricercaModello();
                         break;
                     case "e":
                         System.out.println("Inserisci il prezzo di vendita che desideri cercare...");
