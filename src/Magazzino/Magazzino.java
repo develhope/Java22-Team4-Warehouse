@@ -18,7 +18,6 @@ public class Magazzino {
         return listaDispositivi;
     }
 
-    //TODO: CAMBIO NOME METODO - SOSTITUZIONE METODO CON UNO SEMPLIFICATO CHE HA SOLO GETBRAND
     public List<String> stampaListaProduttori() {
         String risposta = "";
         List<String> listaProduttori = new ArrayList<>();
@@ -30,11 +29,10 @@ public class Magazzino {
         return listaProduttori;
     }
 
-    public Dispositivi ricercaProduttore() {
+    public void ricercaProduttore() {
         for (Dispositivi dispositivo : listaDispositivi) {
             dispositivo.getBrand();
         }
-        return dispositivo.getBrand();
     }
 
     public List<Dispositivi> ricercaModello() {
@@ -83,15 +81,11 @@ public class Magazzino {
                 dispotiviDiRicerca.add(dispositivo);
             }
         }
-
         if (dispotiviDiRicerca.isEmpty()) {
             System.out.println("Nessun dispositivo trovato nel range di prezzo specificato.");
-
         }
         return dispotiviDiRicerca;
     }
-
-
     public double calcolaSpesaMedia(List<Dispositivi> listaDispositivi) {
         if (listaDispositivi.isEmpty()) {
             System.out.println("La lista dei dispositivi è vuota, impossibile calcolare la spesa media.");
@@ -101,9 +95,6 @@ public class Magazzino {
         for (Dispositivi dispositivo : listaDispositivi) {
             totaleSpesa += dispositivo.getPrezzoVendita();
         }
-
         return totaleSpesa / listaDispositivi.size();
-
     }
-
 }

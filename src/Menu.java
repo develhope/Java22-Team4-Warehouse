@@ -150,7 +150,7 @@ public class Menu {
                         break;
                     case "c":
                         System.out.println("Inserisci il nome del brand che desideri cercare...");
-                        System.out.println(magazzino.ricercaProduttore());
+
                         System.out.println(magazzino.stampaListaProduttori());
                         if (magazzino.listaDispositivi.isEmpty()) {
                             System.out.println("La tua ricerca non ha avuto risultati");
