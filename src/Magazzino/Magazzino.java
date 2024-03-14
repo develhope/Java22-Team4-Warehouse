@@ -4,6 +4,8 @@ import Dispositivi.Dispositivi;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
 
 public class Magazzino {
 
@@ -18,21 +20,14 @@ public class Magazzino {
         return listaDispositivi;
     }
 
-    public List<String> stampaListaProduttori() {
-        String risposta = "";
-        List<String> listaProduttori = new ArrayList<>();
+    public List<Dispositivi> ricercaProduttore(String produttore) {
+        List<Dispositivi> listaRisultato = new ArrayList<>();
         for (Dispositivi dispositivo : listaDispositivi) {
-            if (dispositivo.getBrand().equalsIgnoreCase(risposta)) {
-                listaProduttori.add(dispositivo.getBrand());
+            if(dispositivo.getBrand().equalsIgnoreCase(produttore)){
+                listaRisultato.add(dispositivo);
             }
         }
-        return listaProduttori;
-    }
-
-    public void ricercaProduttore() {
-        for (Dispositivi dispositivo : listaDispositivi) {
-            dispositivo.getBrand();
-        }
+        return listaRisultato;
     }
 
     public List<Dispositivi> ricercaModello() {
