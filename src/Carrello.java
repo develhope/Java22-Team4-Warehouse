@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import Dispositivi.*;
+import Magazzino.Magazzino;
 
 public class Carrello {
     public List<Dispositivi> listaProdotti;
@@ -25,7 +26,7 @@ public class Carrello {
     public double calcolaTotale() {
         double totale = 0;
         for (Dispositivi dispositivo : listaProdotti) {
-            totale += dispositivo.getPrezzo();
+            totale += dispositivo.getPrezzoVendita();
         }
         return totale;
     }
