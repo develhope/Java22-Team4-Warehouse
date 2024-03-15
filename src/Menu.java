@@ -117,8 +117,7 @@ public class Menu {
                         magazzino.ricercaModello(scanner.nextLine());
                         break;
                     case "e":
-                        System.out.println("Inserisci il prezzo di vendita che desideri cercare...");
-                        magazzino.cercaPerPrezzo(magazzino.listaDispositivi, scanner.nextInt());
+                        executedCaseE(scanner);
                         break;
                     case "f":
                         System.out.println("Inserisci il prezzo di acquisto che desideri cercare...");
@@ -154,6 +153,11 @@ public class Menu {
             while (continua) ;
         } finally {
         }
+    }
+
+    private void executedCaseE(Scanner scanner) {
+        System.out.println("Inserisci il prezzo di vendita che desideri cercare...");
+        magazzino.cercaPerPrezzo(magazzino.listaDispositivi, scanner.nextInt());
     }
 
     private void axecuteCaseC(Scanner scanner) {
