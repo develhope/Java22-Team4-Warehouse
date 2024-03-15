@@ -115,7 +115,6 @@ public class Dispositivi {
         return id;
     }
 
-
     @Override
     public String toString() {
         return
@@ -129,6 +128,4 @@ public class Dispositivi {
                         ", Prezzo di Vendita: " + prezzoVendita + " Euro "+
                         ", Id: " + id + "\n";
     }
-
-
 }
