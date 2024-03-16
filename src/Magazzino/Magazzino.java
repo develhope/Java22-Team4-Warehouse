@@ -7,6 +7,7 @@ public class Magazzino {
 
     public List<Dispositivi> listaDispositivi = new ArrayList<>();
 
+
     public List<Dispositivi> aggiungiDispositivi(Dispositivi nuovoDispositivo) {
         listaDispositivi.add(nuovoDispositivo);
         return listaDispositivi;
@@ -87,5 +88,41 @@ public class Magazzino {
             totaleSpesa += dispositivo.getPrezzoVendita();
         }
         return totaleSpesa / listaDispositivi.size();
+    }
+
+    public void riempiMagazzino() {
+        Dispositivi dispositivo = new Dispositivi();
+        dispositivo.setId(1);
+        dispositivo.setBrand("Samsung");
+        dispositivo.setDispositivo("Tablet");
+        dispositivo.setModello("Galaxy");
+        dispositivo.setDisplay("9 pollici");
+        dispositivo.setMemoria("125 GB");
+        dispositivo.setDescrizione("Grigio");
+        dispositivo.setPrezzoAcquisto(799.00);
+        dispositivo.setPrezzoVendita(900.00);
+        this.listaDispositivi.add(dispositivo);
+        Dispositivi dispositivo2 = new Dispositivi();
+        dispositivo2.setId(2);
+        dispositivo2.setBrand("Apple");
+        dispositivo2.setDispositivo("Smartphone");
+        dispositivo2.setModello("iPhone 12");
+        dispositivo2.setDisplay("9 pollici");
+        dispositivo2.setMemoria("125 GB");
+        dispositivo2.setDescrizione("bianco");
+        dispositivo2.setPrezzoAcquisto(899.00);
+        dispositivo2.setPrezzoVendita(1900.00);
+        this.listaDispositivi.add(dispositivo2);
+        Dispositivi dispositivo3 = new Dispositivi();
+        dispositivo3.setId(3);
+        dispositivo3.setBrand("Asus");
+        dispositivo3.setDispositivo("Notebook");
+        dispositivo3.setModello("Laptop");
+        dispositivo3.setDisplay("14 pollici");
+        dispositivo3.setMemoria("16 GB");
+        dispositivo3.setDescrizione("Grigio");
+        dispositivo3.setPrezzoAcquisto(799.00);
+        dispositivo3.setPrezzoVendita(999.00);
+        this.listaDispositivi.add(dispositivo3);
     }
 }

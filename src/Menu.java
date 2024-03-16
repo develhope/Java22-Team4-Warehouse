@@ -111,7 +111,7 @@ public class Menu {
                         executeCaseB();
                         break;
                     case "c":
-                        axecuteCaseC(scanner);
+                        executeCaseC(scanner);
                         break;
                     case "d":
                         magazzino.ricercaModello(scanner.nextLine());
@@ -160,7 +160,7 @@ public class Menu {
         magazzino.cercaPerPrezzo(magazzino.listaDispositivi, scanner.nextInt());
     }
 
-    private void axecuteCaseC(Scanner scanner) {
+    private void executeCaseC(Scanner scanner) {
         magazzino.ricercaProduttore(scanner.nextLine());
         System.out.println("Inserisci il nome del brand che desideri cercare...");
 
@@ -202,9 +202,11 @@ public class Menu {
                 nuovoDispositivo.setPrezzoAcquisto(scanner.nextDouble());
                 System.out.println("Inserisci il prezzo di vendita al dettaglio del dispositivo:");
                 nuovoDispositivo.setPrezzoVendita(scanner.nextDouble());
-                magazzino.aggiungiDispositivi(nuovoDispositivo);
+                nuovoDispositivo.setId(nuovoDispositivo.autoIncrementoID(magazzino.listaDispositivi));
+                if(!nuovoDispositivo.getDispositivo().isEmpty()){
+                    magazzino.aggiungiDispositivi(nuovoDispositivo);
+                }
                 System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
-                // todo snellire il codice
                 risposta = scanner.next();
             } while (risposta.equalsIgnoreCase("si"));
             if (risposta.equalsIgnoreCase("no")) {
