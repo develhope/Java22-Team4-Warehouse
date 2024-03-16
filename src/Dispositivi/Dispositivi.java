@@ -1,7 +1,4 @@
 package Dispositivi;
-
-import Magazzino.Magazzino;
-
 import java.util.List;
 import java.util.Scanner;
 

@@ -131,7 +131,6 @@ public class Menu {
                         magazzino.cercaPerRangePrezzo(magazzino.listaDispositivi, min, max);
                         break;
                     case "h":
-                        //magazzino1.calcolaSpesaMedia(magazzino1.listaDispositivi);
                         double spesaMedia = magazzino.calcolaSpesaMedia(magazzino.listaDispositivi);
                         if (spesaMedia == 0.0) {
                             System.out.println("Impossibile calcolare la spesa media, nessun dispositivo presente.");
@@ -215,3 +214,4 @@ public class Menu {
     }
 }
 
+//TODO: AGGIUNGERE COMMENTI AI METODI, SPOSTARE PRINTLN, TESTING.
