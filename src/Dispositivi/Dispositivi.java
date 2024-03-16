@@ -51,11 +51,12 @@ public class Dispositivi {
 
         int lastID = 0;
         for(Dispositivi dispositivo : lista){
-            if(dispositivo.getId() > lastID){
+            if(dispositivo.getId() >= lastID){
                 lastID = dispositivo.getId();
             }
         }
-        return lastID++;
+        lastID = lastID+1;
+        return lastID;
     }
 
     public void setId(int id) {
@@ -124,7 +125,6 @@ public class Dispositivi {
     public void setPrezzoVendita(Double prezzoVendita) {
         this.prezzoVendita = prezzoVendita;
     }
-//Autoincremento dell'id
     public int getId() {
         return id;
     }

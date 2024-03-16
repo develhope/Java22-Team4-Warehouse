@@ -180,8 +180,6 @@ public class Menu {
     }
 
     private void executeCaseA(Scanner scanner) {
-        magazzino.aggiungiDispositivi(new Dispositivi());
-
         String risposta;
         try {
             do {
@@ -203,9 +201,7 @@ public class Menu {
                 System.out.println("Inserisci il prezzo di vendita al dettaglio del dispositivo:");
                 nuovoDispositivo.setPrezzoVendita(scanner.nextDouble());
                 nuovoDispositivo.setId(nuovoDispositivo.autoIncrementoID(magazzino.listaDispositivi));
-                if(!nuovoDispositivo.getDispositivo().isEmpty()){
-                    magazzino.aggiungiDispositivi(nuovoDispositivo);
-                }
+                magazzino.aggiungiDispositivi(nuovoDispositivo);
                 System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
                 risposta = scanner.next();
             } while (risposta.equalsIgnoreCase("si"));
