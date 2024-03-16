@@ -24,7 +24,7 @@ public class Menu {
             while (continua) {
                 System.out.println("Benvenuto nel menu principale:");
                 System.out.println("1. Gestisci Carrello");
-                System.out.println("2. Gestisci Magazzino.Magazzino");
+                System.out.println("2. Gestisci Magazzino");
                 System.out.println("3. Esci");
 
                 int scelta = scanner.nextInt();
@@ -148,7 +148,6 @@ public class Menu {
                         System.out.println("Operazione non valida.");
                         break;
                 }
-
             }
             while (continua) ;
         } finally {
