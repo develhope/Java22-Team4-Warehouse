@@ -11,7 +11,7 @@ public class Carrello {
     }
     Magazzino magazzino = new Magazzino();
     public String aggiungiDispositivo(Dispositivi dispositivo) {
-        magazzino.listaDispositivi.add(dispositivo);
+        magazzino.getListaDispositivi().add(dispositivo);
         return "Dispositivo aggiunto al carrello: " + dispositivo.getModello();
     }
 

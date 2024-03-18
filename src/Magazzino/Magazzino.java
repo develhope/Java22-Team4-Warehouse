@@ -1,11 +1,16 @@
 package Magazzino;
 import Dispositivi.Dispositivi;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Magazzino {
 
-    public List<Dispositivi> listaDispositivi = new ArrayList<>();
+
+    private List<Dispositivi> listaDispositivi = new ArrayList<>();
+    public List<Dispositivi> getListaDispositivi() {
+        return listaDispositivi;
+    }
 
 
     public List<Dispositivi> aggiungiDispositivi(Dispositivi nuovoDispositivo) {

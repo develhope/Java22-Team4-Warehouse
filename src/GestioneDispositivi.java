@@ -18,8 +18,8 @@ public class GestioneDispositivi {
         int indiceProdotto = scanner.nextInt();
 
         if (indiceProdotto >= 0 && indiceProdotto < listaDispositivi.size()) {
-            listaProdotti.add(magazzino.listaDispositivi.get(indiceProdotto));
-            System.out.println("Prodotto copiato con successo: " + magazzino.listaDispositivi.get(indiceProdotto));
+            listaProdotti.add(magazzino.getListaDispositivi().get(indiceProdotto));
+            System.out.println("Prodotto copiato con successo: " + magazzino.getListaDispositivi().get(indiceProdotto));
         } else {
             System.out.println("Indice del prodotto non valido.");
         }
