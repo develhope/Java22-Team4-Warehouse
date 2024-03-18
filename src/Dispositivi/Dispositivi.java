@@ -1,7 +1,6 @@
 package Dispositivi;
-
+import java.util.List;
 import java.util.Scanner;
-import java.util.UUID;
 
 public class Dispositivi {
     private String dispositivo;
@@ -13,7 +12,7 @@ public class Dispositivi {
     private Double prezzoAcquisto;
     private Double prezzoVendita;
 
-    private String id;
+    private int id;
 
     public Dispositivi(String dispositivo,
                          String brand,
@@ -23,7 +22,7 @@ public class Dispositivi {
                         double prezzoVendita,
                          String memoria,
                          double prezzoAcquisto) {
-        this.id = UUID.randomUUID().toString();
+        this.id = id;
         this.dispositivo = dispositivo;
         this.brand = brand;
         this.modello = modello;
@@ -34,7 +33,6 @@ public class Dispositivi {
         this.prezzoVendita = prezzoVendita;
     }
     public Dispositivi(Scanner scanner){
-        this.id = UUID.randomUUID().toString();
         this.dispositivo = scanner.next();
         this.brand = scanner.next();
         this.modello = scanner.next();
@@ -46,7 +44,21 @@ public class Dispositivi {
     }
 
     public Dispositivi() {}
+    public int autoIncrementoID(List<Dispositivi> lista){
 
+        int lastID = 0;
+        for(Dispositivi dispositivo : lista){
+            if(dispositivo.getId() >= lastID){
+                lastID = dispositivo.getId();
+            }
+        }
+        lastID = lastID+1;
+        return lastID;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     public String getDispositivo() {
         return dispositivo;
     }
@@ -110,8 +122,7 @@ public class Dispositivi {
     public void setPrezzoVendita(Double prezzoVendita) {
         this.prezzoVendita = prezzoVendita;
     }
-//Autoincremento dell'id
-    public String getId() {
+    public int getId() {
         return id;
     }
 
