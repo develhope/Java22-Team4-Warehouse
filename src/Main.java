@@ -10,9 +10,5 @@ public class Main {
         Menu menu = new Menu(carrello,magazzino,scanner);
         magazzino.riempiMagazzino();
         menu.avviaMenu();
-
-
     }
-
-
 }

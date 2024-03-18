@@ -2,6 +2,7 @@ import Dispositivi.Dispositivi;
 import Magazzino.Magazzino;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -114,29 +115,19 @@ public class Menu {
                         executeCaseC(scanner);
                         break;
                     case "d":
-                        magazzino.ricercaModello(scanner.nextLine());
+                        executeCaseD(scanner);
                         break;
                     case "e":
                         executedCaseE(scanner);
                         break;
                     case "f":
-                        System.out.println("Inserisci il prezzo di acquisto che desideri cercare...");
-                        magazzino.cercaPerPrezzoAcquisto(magazzino.getListaDispositivi(), scanner.nextInt());
+                        executeCaseF(scanner);
                         break;
                     case "g":
-                        System.out.println("Inserisci il prezzo minimo del range:");
-                        double min = scanner.nextDouble();
-                        System.out.println("Inserisci il prezzo massimo del range:");
-                        double max = scanner.nextDouble();
-                        magazzino.cercaPerRangePrezzo(magazzino.getListaDispositivi(), min, max);
+                        executeCaseG(scanner);
                         break;
                     case "h":
-                        double spesaMedia = magazzino.calcolaSpesaMedia(magazzino.getListaDispositivi());
-                        if (spesaMedia == 0.0) {
-                            System.out.println("Impossibile calcolare la spesa media, nessun dispositivo presente.");
-                        } else {
-                            System.out.println("La spesa media dei dispositivi è: " + spesaMedia);
-                        }
+                        executeCaseH();
 
                         break;
                     case "esc":
@@ -151,6 +142,32 @@ public class Menu {
             while (continua) ;
         } finally {
         }
+    }
+
+    private void executeCaseH() {
+        double spesaMedia = magazzino.calcolaSpesaMedia(magazzino.getListaDispositivi());
+        if (spesaMedia == 0.0) {
+            System.out.println("Impossibile calcolare la spesa media, nessun dispositivo presente.");
+        } else {
+            System.out.println("La spesa media dei dispositivi è: " + spesaMedia);
+        }
+    }
+
+    private void executeCaseG(Scanner scanner) {
+        System.out.println("Inserisci il prezzo minimo del range:");
+        double min = scanner.nextDouble();
+        System.out.println("Inserisci il prezzo massimo del range:");
+        double max = scanner.nextDouble();
+        magazzino.cercaPerRangePrezzo(magazzino.getListaDispositivi(), min, max);
+    }
+
+    private void executeCaseF(Scanner scanner) {
+        System.out.println("Inserisci il prezzo di acquisto che desideri cercare...");
+        magazzino.cercaPerPrezzoAcquisto(magazzino.getListaDispositivi(), scanner.nextInt());
+    }
+
+    private List<Dispositivi> executeCaseD(Scanner scanner) {
+        return magazzino.ricercaModello(scanner.nextLine());
     }
 
     private void executedCaseE(Scanner scanner) {
