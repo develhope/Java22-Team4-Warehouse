@@ -23,6 +23,7 @@ public class Magazzino {
     }
 
     public List<Dispositivi> ricercaProduttore(String produttore) {
+
         List<Dispositivi> listaRisultato = new ArrayList<>();
         for (Dispositivi dispositivo : listaDispositivi) {
             if(dispositivo.getBrand().equalsIgnoreCase(produttore)){

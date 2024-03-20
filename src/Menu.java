@@ -1,10 +1,7 @@
 import Dispositivi.Dispositivi;
 import Magazzino.Magazzino;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Menu {
     Carrello carrello = new Carrello();
@@ -141,6 +138,7 @@ public class Menu {
             }
             while (continua) ;
         } finally {
+            System.out.println("Grazie e buona giornata!");
         }
     }
 
@@ -176,13 +174,27 @@ public class Menu {
     }
 
     private void executeCaseC(Scanner scanner) {
-        magazzino.ricercaProduttore(scanner.nextLine());
         System.out.println("Inserisci il nome del brand che desideri cercare...");
-
-        System.out.println(magazzino.ricercaProduttore(scanner.nextLine()));
-        if (magazzino.getListaDispositivi().isEmpty()) {
-            System.out.println("La tua ricerca non ha avuto risultati");
+        String thisBrand = scanner.next();
+        magazzino.ricercaProduttore(thisBrand);
+        Dispositivi dispositivo = new Dispositivi();
+        if(thisBrand.equalsIgnoreCase(dispositivo.getBrand())){
+            System.out.println("I prodotti di questo produttore sono: \n" + magazzino.ricercaProduttore(thisBrand));
         }
+        else if (magazzino.getListaDispositivi().isEmpty()) {
+            System.out.println("Il magazzino al momento è vuoto");
+        } else {
+            System.out.println("La tua ricerca non ha prodotto risultati.\n" + "Inserisci nuovamente il brand: ");
+            magazzino.ricercaProduttore(thisBrand);
+        }
+        try {
+            // Aggiungi un ritardo di 1 secondo (1000 millisecondi)
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Premi invio per tornare al menù del magazzino");
     }
 
     private void executeCaseB() {
@@ -221,13 +233,10 @@ public class Menu {
                 risposta = scanner.next();
             } while (risposta.equalsIgnoreCase("si"));
             if (risposta.equalsIgnoreCase("no")) {
-                return;
             }
         }catch (NumberFormatException e){
             System.out.println("Ops, hai digitato una lettera. Reinserisci il valore prestando attenzione a digitare solo cifre.");
         }
-
-        return;
     }
 }
 
