@@ -152,60 +152,101 @@ public class Menu {
     }
 
     private void executeCaseG(Scanner scanner) {
-        System.out.println("Inserisci il prezzo minimo del range:");
-        double min = scanner.nextDouble();
-        System.out.println("Inserisci il prezzo massimo del range:");
-        double max = scanner.nextDouble();
-        magazzino.cercaPerRangePrezzo(magazzino.getListaDispositivi(), min, max);
-    }
-
-    private void executeCaseF(Scanner scanner) {
-        System.out.println("Inserisci il prezzo di acquisto che desideri cercare...");
-        magazzino.cercaPerPrezzoAcquisto(magazzino.getListaDispositivi(), scanner.nextInt());
-    }
-
-    private List<Dispositivi> executeCaseD(Scanner scanner) {
-        return magazzino.ricercaModello(scanner.nextLine());
-    }
-
-    private void executedCaseE(Scanner scanner) {
-        System.out.println("Inserisci il prezzo di vendita che desideri cercare...");
-        magazzino.cercaPerPrezzo(magazzino.getListaDispositivi(), scanner.nextInt());
-    }
-
-    private void executeCaseC(Scanner scanner) {
-        System.out.println("Inserisci il nome del brand che desideri cercare...");
-        String thisBrand = scanner.next();
-        magazzino.ricercaProduttore(thisBrand);
-        Dispositivi dispositivo = new Dispositivi();
-        if(thisBrand.equalsIgnoreCase(dispositivo.getBrand())){
-            System.out.println("I prodotti di questo produttore sono: \n" + magazzino.ricercaProduttore(thisBrand));
-        }
-        else if (magazzino.getListaDispositivi().isEmpty()) {
-            System.out.println("Il magazzino al momento è vuoto");
-        } else {
-            System.out.println("La tua ricerca non ha prodotto risultati.\n" + "Inserisci nuovamente il brand: ");
-            magazzino.ricercaProduttore(thisBrand);
+        System.out.println("Inserisci il prezzo minimo e massimo del prodotto che cerchi:");
+        List<Dispositivi> risultatoRicercaRange = magazzino.cercaPerRangePrezzo(magazzino.getListaDispositivi(), scanner.nextDouble(), scanner.nextDouble());
+        System.out.println(risultatoRicercaRange);
+        if(risultatoRicercaRange.isEmpty()){
+            System.out.println("La tua ricerca non ha prodotto risultati.\n");
+            this.executeCaseG(scanner);
         }
         try {
-            // Aggiungi un ritardo di 1 secondo (1000 millisecondi)
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
         System.out.println("Premi invio per tornare al menù del magazzino");
+        scanner.nextLine();
+    }
+
+    private void executeCaseF(Scanner scanner) {
+        System.out.println("Inserisci il prezzo di acquisto che desideri cercare...");
+        List<Dispositivi> risultatoRicercaPerPrezzoAcquisto = magazzino.cercaPerPrezzoAcquisto(magazzino.getListaDispositivi(), scanner.nextInt());
+        System.out.println("Il risultato della tua ricerca: \n" + risultatoRicercaPerPrezzoAcquisto);
+        if(risultatoRicercaPerPrezzoAcquisto.isEmpty()){
+            System.out.println("La tua ricerca non ha prodotto risultati.\n");
+            this.executedCaseE(scanner);
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Premi invio per tornare al menù del magazzino");
+        scanner.nextLine();
+    }
+
+
+    private void executedCaseE(Scanner scanner) {
+        System.out.println("Inserisci il prezzo di vendita che desideri cercare...");
+        List<Dispositivi> risultatoRicercaPerPrezzo = magazzino.cercaPerPrezzo(magazzino.getListaDispositivi(), scanner.nextInt());
+        System.out.println("Il risultato della tua ricerca: \n" + risultatoRicercaPerPrezzo);
+        if(risultatoRicercaPerPrezzo.isEmpty()){
+            System.out.println("La tua ricerca non ha prodotto risultati.\n");
+            this.executedCaseE(scanner);
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Premi invio per tornare al menù del magazzino");
+        scanner.nextLine();
+    }
+    private void executeCaseD(Scanner scanner) {
+        System.out.println("Inserisci il nome del brand che desideri cercare...");
+        String thisBrand = scanner.next();
+        List<Dispositivi> dispositiviPerModello = magazzino.ricercaModello(thisBrand);
+        System.out.println("Il risultato della tua ricerca: \n" + dispositiviPerModello);
+
+        if (dispositiviPerModello.isEmpty()) {
+            System.out.println("La tua ricerca non ha prodotto risultati.\n");
+            this.executeCaseC(scanner);
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Premi invio per tornare al menù del magazzino");
+        scanner.nextLine();
+
+    }
+    private void executeCaseC(Scanner scanner) {
+        System.out.println("Inserisci il nome del brand che desideri cercare...");
+        String thisBrand = scanner.next();
+        List<Dispositivi> dispositiviPerProduttore = magazzino.ricercaProduttore(thisBrand);
+        System.out.println("I prodotti di questo produttore sono: \n" + dispositiviPerProduttore);
+
+        if (dispositiviPerProduttore.isEmpty()) {
+            System.out.println("La tua ricerca non ha prodotto risultati.\n");
+            this.executeCaseC(scanner);
+        }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Premi invio per tornare al menù del magazzino");
+        scanner.nextLine();
     }
 
     private void executeCaseB() {
-        magazzino.stampaDispositivi(magazzino.getListaDispositivi());
-        System.out.println("La lista di dispositivi contiene: " + magazzino.getListaDispositivi().size() + " elementi");
+        System.out.println("Il magazzino contiene: " + magazzino.getListaDispositivi().size() + " elementi");
         System.out.println(magazzino.getListaDispositivi());
         if (magazzino.getListaDispositivi().isEmpty()) {
             System.out.println("Il magazzino è vuoto");
         }
     }
-
     private void executeCaseA(Scanner scanner) {
         String risposta;
         try {
@@ -228,7 +269,7 @@ public class Menu {
                 System.out.println("Inserisci il prezzo di vendita al dettaglio del dispositivo:");
                 nuovoDispositivo.setPrezzoVendita(scanner.nextDouble());
                 nuovoDispositivo.setId(nuovoDispositivo.autoIncrementoID(magazzino.getListaDispositivi()));
-                magazzino.aggiungiDispositivi(nuovoDispositivo);
+                magazzino.aggiungiDispositiviMagazzino(nuovoDispositivo);
                 System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
                 risposta = scanner.next();
             } while (risposta.equalsIgnoreCase("si"));
@@ -240,4 +281,4 @@ public class Menu {
     }
 }
 
-//TODO: AGGIUNGERE COMMENTI AI METODI, SPOSTARE PRINTLN, TESTING.
+//TODO: TESTING

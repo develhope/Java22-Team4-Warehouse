@@ -1,29 +1,19 @@
 package Magazzino;
 import Dispositivi.Dispositivi;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-
 public class Magazzino {
-
-
     private List<Dispositivi> listaDispositivi = new ArrayList<>();
     public List<Dispositivi> getListaDispositivi() {
-        return listaDispositivi;
+        return this.listaDispositivi;
     }
-
-
-    public List<Dispositivi> aggiungiDispositivi(Dispositivi nuovoDispositivo) {
+    //Metodo che permette l'aggiunta dei dispositivi al magazzino
+    public List<Dispositivi> aggiungiDispositiviMagazzino(Dispositivi nuovoDispositivo) {
         listaDispositivi.add(nuovoDispositivo);
         return listaDispositivi;
     }
-
-    public List<Dispositivi> stampaDispositivi(List<Dispositivi> listaDispositivi) {
-        return listaDispositivi;
-    }
-
+    //metodo di ricerca per produttore
     public List<Dispositivi> ricercaProduttore(String produttore) {
-
         List<Dispositivi> listaRisultato = new ArrayList<>();
         for (Dispositivi dispositivo : listaDispositivi) {
             if(dispositivo.getBrand().equalsIgnoreCase(produttore)){
@@ -32,7 +22,7 @@ public class Magazzino {
         }
         return listaRisultato;
     }
-
+    //metodo di ricerca per modello
     public List<Dispositivi> ricercaModello(String produttore) {
         List<Dispositivi> listaRisultato = new ArrayList<>();
         for (Dispositivi dispositivo : listaDispositivi) {
@@ -43,7 +33,7 @@ public class Magazzino {
         return listaRisultato;
     }
 
-
+    //metodo di ricerca per prezzo di vendita
     public List<Dispositivi> cercaPerPrezzo(List<Dispositivi> listaDispositivi, double prezzoDaCercare) {
         List<Dispositivi> dispositiviRicerca = new ArrayList<>();
         for (Dispositivi dispositivo : listaDispositivi) {
@@ -51,26 +41,19 @@ public class Magazzino {
                 dispositiviRicerca.add(dispositivo);
             }
         }
-        if (dispositiviRicerca.isEmpty()) {
-            System.out.println("Nessun dispositivo trovato con il prezzo specificato.");
-
-        }
         return dispositiviRicerca;
     }
-
+    //metodo di ricerca per prezzo d'acquisto
     public List<Dispositivi> cercaPerPrezzoAcquisto(List<Dispositivi> listaDispositivi, double prezzoAcquistoDaCercare) {
         List<Dispositivi> dispositiviRicerca = new ArrayList<>();
         for (Dispositivi dispositivo : listaDispositivi) {
-            if (dispositivo.getPrezzoVendita() == prezzoAcquistoDaCercare) {
+            if (dispositivo.getPrezzoAcquisto() == prezzoAcquistoDaCercare) {
                 dispositiviRicerca.add(dispositivo);
             }
         }
-        if (dispositiviRicerca.isEmpty()) {
-            System.out.println("Nessun dispositivo trovato con il prezzo di acquisto specificato.");
-        }
         return dispositiviRicerca;
     }
-
+    //metodo di ricerca per range di prezzo
     public List<Dispositivi> cercaPerRangePrezzo(List<Dispositivi> listaDispositivi, double prezzoMin, double prezzoMax) {
         List<Dispositivi> dispotiviDiRicerca = new ArrayList<>();
         for (Dispositivi dispositivo : listaDispositivi) {
@@ -79,14 +62,11 @@ public class Magazzino {
                 dispotiviDiRicerca.add(dispositivo);
             }
         }
-        if (dispotiviDiRicerca.isEmpty()) {
-            System.out.println("Nessun dispositivo trovato nel range di prezzo specificato.");
-        }
         return dispotiviDiRicerca;
     }
+    //metodo di calcolo della spesa media
     public double calcolaSpesaMedia(List<Dispositivi> listaDispositivi) {
         if (listaDispositivi.isEmpty()) {
-            System.out.println("La lista dei dispositivi è vuota, impossibile calcolare la spesa media.");
             return 0.0;
         }
         double totaleSpesa = 0;
@@ -95,10 +75,10 @@ public class Magazzino {
         }
         return totaleSpesa / listaDispositivi.size();
     }
-
+    //metodo che riempie il magazzino di base
     public void riempiMagazzino() {
         Dispositivi dispositivo = new Dispositivi();
-        dispositivo.setId(1);
+        dispositivo.setId(dispositivo.autoIncrementoID(listaDispositivi));
         dispositivo.setBrand("Samsung");
         dispositivo.setDispositivo("Tablet");
         dispositivo.setModello("Galaxy");
@@ -109,7 +89,7 @@ public class Magazzino {
         dispositivo.setPrezzoVendita(900.00);
         this.listaDispositivi.add(dispositivo);
         Dispositivi dispositivo2 = new Dispositivi();
-        dispositivo2.setId(2);
+        dispositivo2.setId(dispositivo.autoIncrementoID(listaDispositivi));
         dispositivo2.setBrand("Apple");
         dispositivo2.setDispositivo("Smartphone");
         dispositivo2.setModello("iPhone 12");
@@ -120,7 +100,7 @@ public class Magazzino {
         dispositivo2.setPrezzoVendita(1900.00);
         this.listaDispositivi.add(dispositivo2);
         Dispositivi dispositivo3 = new Dispositivi();
-        dispositivo3.setId(3);
+        dispositivo3.setId(dispositivo3.autoIncrementoID(listaDispositivi));
         dispositivo3.setBrand("Asus");
         dispositivo3.setDispositivo("Notebook");
         dispositivo3.setModello("Laptop");
