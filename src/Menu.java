@@ -131,6 +131,8 @@ public class Menu {
                 }
             }
             while (continua) ;
+        } catch (NoSuchElementException e){
+            System.out.println(e.getLocalizedMessage());
         } finally {
             System.out.println("Grazie e buona giornata!");
         }
@@ -206,7 +208,7 @@ public class Menu {
 
         if (dispositiviPerModello.isEmpty()) {
             System.out.println("La tua ricerca non ha prodotto risultati.\n");
-            this.executeCaseC(scanner);
+            this.executeCaseD(scanner);
         }
         try {
             Thread.sleep(1000);
