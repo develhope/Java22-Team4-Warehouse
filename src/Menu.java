@@ -4,17 +4,17 @@ import Magazzino.Magazzino;
 import java.util.*;
 
 public class Menu {
-    Carrello carrello = new Carrello();
-    Magazzino magazzino = new Magazzino();
-    Scanner scanner = new Scanner(System.in);
+    Carrello carrello;
+    Magazzino magazzino;
+    Dispositivi dispositivo;
+    Scanner scanner;
 
-    public Menu(Carrello carrello, Magazzino magazzino, Scanner scanner) {
+    public Menu(Carrello carrello, Magazzino magazzino, Scanner scanner,Dispositivi dispositivo) {
         this.carrello = carrello;
         this.magazzino = magazzino;
         this.scanner = scanner;
-
+        this.dispositivo = dispositivo;
     }
-
     public void avviaMenu() {
         Scanner scanner = new Scanner(System.in);
         boolean continua = true;
@@ -46,6 +46,7 @@ public class Menu {
                 }
             }
         } catch (NoSuchElementException e) {
+            System.out.println(e.getLocalizedMessage());
         }
     }
 
@@ -57,11 +58,7 @@ public class Menu {
                 "c. se vuoi rimovere tutti i prodotti dal carrello,\n" +
                 "d. visualizza gli elementi del tuo carrello,\n" +
                 "e. totale del carrello,\n");
-        Carrello carrello = new Carrello();
-        Dispositivi dispositivo = new Dispositivi();
-
         String scelta = scanner.next();
-
         switch (scelta) {
             case "a":
                 carrello.aggiungiDispositivo(dispositivo);
@@ -99,7 +96,6 @@ public class Menu {
                         "g. per effettuare una ricerca con un range di prezzo,\n" +
                         "h. per visualizzare il totale della spesa media");
                 String scelta = scanner.next().toLowerCase();
-
                 switch (scelta) {
                     case "a":
                         executeCaseA(scanner);
@@ -125,12 +121,10 @@ public class Menu {
                         break;
                     case "h":
                         executeCaseH();
-
                         break;
                     case "esc":
                         continua = false;
                         break;
-
                     default:
                         System.out.println("Operazione non valida.");
                         break;
@@ -153,7 +147,9 @@ public class Menu {
 
     private void executeCaseG(Scanner scanner) {
         System.out.println("Inserisci il prezzo minimo e massimo del prodotto che cerchi:");
-        List<Dispositivi> risultatoRicercaRange = magazzino.cercaPerRangePrezzo(magazzino.getListaDispositivi(), scanner.nextDouble(), scanner.nextDouble());
+        double max = scanner.nextDouble();
+        double min = scanner.nextDouble();
+        List<Dispositivi> risultatoRicercaRange = magazzino.cercaPerRangePrezzo(magazzino.getListaDispositivi(),min,max);
         System.out.println(risultatoRicercaRange);
         if(risultatoRicercaRange.isEmpty()){
             System.out.println("La tua ricerca non ha prodotto risultati.\n");
@@ -203,7 +199,7 @@ public class Menu {
         scanner.nextLine();
     }
     private void executeCaseD(Scanner scanner) {
-        System.out.println("Inserisci il nome del brand che desideri cercare...");
+        System.out.println("Inserisci il nome del modello che desideri cercare...");
         String thisBrand = scanner.next();
         List<Dispositivi> dispositiviPerModello = magazzino.ricercaModello(thisBrand);
         System.out.println("Il risultato della tua ricerca: \n" + dispositiviPerModello);
@@ -281,4 +277,4 @@ public class Menu {
     }
 }
 
-//TODO: TESTING
+//TODO: TESTING, RIVEDERE METODI
