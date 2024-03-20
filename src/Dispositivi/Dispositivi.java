@@ -45,7 +45,6 @@ public class Dispositivi {
 
     public Dispositivi() {}
     public int autoIncrementoID(List<Dispositivi> lista){
-
         int lastID = 0;
         for(Dispositivi dispositivo : lista){
             if(dispositivo.getId() >= lastID){
@@ -134,7 +133,7 @@ public class Dispositivi {
                         ", Modello: " + modello +
                         ", Descrizione: " + descrizione +
                         ", Display: " + display +
-                        ", Memoria: " + memoria +
+                        ", Memoria: " + memoria + " GB " +
                         ", Prezzo d'Acquisto: " + prezzoAcquisto +" Euro " +
                         ", Prezzo di Vendita: " + prezzoVendita + " Euro "+
                         ", Id: " + id + "\n";
