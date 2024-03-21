@@ -43,6 +43,7 @@ public class Magazzino {
         }
         return dispositiviRicerca;
     }
+
     //metodo di ricerca per prezzo d'acquisto
     public List<Dispositivi> cercaPerPrezzoAcquisto(List<Dispositivi> listaDispositivi, double prezzoAcquistoDaCercare) {
         List<Dispositivi> dispositiviRicerca = new ArrayList<>();
