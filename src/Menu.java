@@ -138,6 +138,14 @@ public class Menu {
         }
     }
 
+    private static void sleepMode() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace(); //TODO: cosa fare se da errore? aggiungere funzione per lo sleep
+        }
+    }
+
     private void executeCaseH() {
         double spesaMedia = magazzino.calcolaSpesaMedia(magazzino.getListaDispositivi());
         if (spesaMedia == 0.0) {
@@ -158,11 +166,7 @@ public class Menu {
         }else{
             System.out.println(risultatoRicercaRange);
         }
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        sleepMode();
         System.out.println("Premi invio per tornare al menù del magazzino");
         scanner.nextLine();
     }
@@ -176,11 +180,7 @@ public class Menu {
         }else{
             System.out.println("Il risultato della tua ricerca: \n" + risultatoRicercaPerPrezzoAcquisto);
         }
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        sleepMode();
         System.out.println("Premi invio per tornare al menù del magazzino");
         scanner.nextLine();
     }
@@ -195,11 +195,7 @@ public class Menu {
         }else{
             System.out.println("Il risultato della tua ricerca: \n" + risultatoRicercaPerPrezzo);
         }
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        sleepMode();
         System.out.println("Premi invio per tornare al menù del magazzino");
         scanner.nextLine();
     }
@@ -213,11 +209,7 @@ public class Menu {
         }else{
             System.out.println("Il risultato della tua ricerca: \n" + dispositiviPerModello);
         }
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        sleepMode();
         System.out.println("Premi invio per tornare al menù del magazzino");
         scanner.nextLine();
 
@@ -232,11 +224,7 @@ public class Menu {
         } else {
             System.out.println("I prodotti di questo produttore sono: \n" + dispositiviPerProduttore);
         }
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace(); //TODO: cosa fare se da errore? aggiungere funzione per lo sleep
-        }
+        sleepMode();
         System.out.println("Premi invio per tornare al menù del magazzino");
         scanner.nextLine();
     }
