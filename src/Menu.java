@@ -52,12 +52,14 @@ public class Menu {
 
     private void gestisciCarrello(Scanner scanner) {
 
-        System.out.println("Seleziona un'operazione:\n" +
-                "a. aggiungi un dispositivo al carrello,\n" +
-                "b. rimuovi un dispositivo dal carrello,\n" +
-                "c. se vuoi rimovere tutti i prodotti dal carrello,\n" +
-                "d. visualizza gli elementi del tuo carrello,\n" +
-                "e. totale del carrello,\n");
+        System.out.println("""
+                Seleziona un'operazione:
+                a. aggiungi un dispositivo al carrello,
+                b. rimuovi un dispositivo dal carrello,
+                c. se vuoi rimovere tutti i prodotti dal carrello,
+                d. visualizza gli elementi del tuo carrello,
+                e. totale del carrello,
+                """);
         String scelta = scanner.next();
         switch (scelta) {
             case "a":
@@ -86,15 +88,16 @@ public class Menu {
         boolean continua = true;
         try {
             while (continua) {
-                System.out.println("Seleziona un'operazione:\n" +
-                        "a. aggiungi un dispositivo al magazzino,\n" +
-                        "b. visualizza tutti i dispositivi presenti nel magazzino,\n" +
-                        "c. per effettuare una ricerca per produttore,\n" +
-                        "d. per effettuare una ricerca per modello, \n" +
-                        "e. per effettuare una ricerca per prezzo di vendita,\n" +
-                        "f. per effettuare una ricerca per prezzo di acquisto,\n" +
-                        "g. per effettuare una ricerca con un range di prezzo,\n" +
-                        "h. per visualizzare il totale della spesa media");
+                System.out.println("""
+                        Seleziona un'operazione:
+                        a. aggiungi un dispositivo al magazzino,
+                        b. visualizza tutti i dispositivi presenti nel magazzino,
+                        c. per effettuare una ricerca per produttore,
+                        d. per effettuare una ricerca per modello,\s
+                        e. per effettuare una ricerca per prezzo di vendita,
+                        f. per effettuare una ricerca per prezzo di acquisto,
+                        g. per effettuare una ricerca con un range di prezzo,
+                        h. per visualizzare il totale della spesa media""");
                 String scelta = scanner.next().toLowerCase();
                 switch (scelta) {
                     case "a":
@@ -140,7 +143,7 @@ public class Menu {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            e.printStackTrace(); //TODO: cosa fare se da errore?
+            e.printStackTrace();
         }
     }
     private static void backToMenu(Scanner scanner) {
@@ -268,4 +271,3 @@ public class Menu {
         }
     }
 }
-//TODO: TESTING, RIVEDERE METODI
