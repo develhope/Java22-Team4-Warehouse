@@ -206,7 +206,7 @@ public class Menu {
 
         if (dispositiviPerModello.isEmpty()) {
             System.out.println("La tua ricerca non ha prodotto risultati.\n");
-            this.executeCaseD(scanner);
+            this.executeCaseC(scanner);
         }
         try {
             Thread.sleep(1000);

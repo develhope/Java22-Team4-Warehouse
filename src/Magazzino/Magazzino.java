@@ -34,6 +34,7 @@ public class Magazzino {
     }
 
     //metodo di ricerca per prezzo di vendita
+
     public List<Dispositivi> cercaPerPrezzo(List<Dispositivi> listaDispositivi, double prezzoDaCercare) {
         List<Dispositivi> dispositiviRicerca = new ArrayList<>();
         for (Dispositivi dispositivo : listaDispositivi) {
@@ -43,6 +44,7 @@ public class Magazzino {
         }
         return dispositiviRicerca;
     }
+
     //metodo di ricerca per prezzo d'acquisto
     public List<Dispositivi> cercaPerPrezzoAcquisto(List<Dispositivi> listaDispositivi, double prezzoAcquistoDaCercare) {
         List<Dispositivi> dispositiviRicerca = new ArrayList<>();
