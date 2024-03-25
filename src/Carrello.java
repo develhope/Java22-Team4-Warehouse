@@ -10,9 +10,15 @@ public class Carrello {
         this.listaProdotti = new ArrayList<>();
     }
     Magazzino magazzino = new Magazzino();
-    public String aggiungiDispositivo(Dispositivi dispositivo) {
-        magazzino.getListaDispositivi().add(dispositivo);
-        return "Dispositivo aggiunto al carrello: " + dispositivo.getModello();
+    Dispositivi dispositivo = new Dispositivi();
+    public List<Dispositivi> aggiungiDispositivo(int id) {
+        List<Dispositivi> listaProdotti = new ArrayList<>();
+        for(Dispositivi dispositivo : magazzino.getListaDispositivi()){
+            if(dispositivo.getId() == id){
+                listaProdotti.add(dispositivo);
+            }
+        }
+        return listaProdotti;
     }
 
     public String rimuoviDispositivo(Dispositivi dispositivo) {

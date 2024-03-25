@@ -63,7 +63,16 @@ public class Menu {
         String scelta = scanner.next();
         switch (scelta) {
             case "a":
-                carrello.aggiungiDispositivo(dispositivo);
+                System.out.println("Aggiungi l'id che vuoi cercare: ");
+                int id = scanner.nextInt();
+                List<Dispositivi> listaCarrello = carrello.aggiungiDispositivo(id);
+                if (listaCarrello.isEmpty()) {
+                    System.out.println("La tua ricerca non ha prodotto risultati.\n");
+                    this.executeCaseC(scanner);
+                } else {
+                    System.out.println("I prodotti nel tuo carrello sono: \n" + listaCarrello);
+                    backToMenu(scanner);
+                }
                 break;
             case "b":
                 carrello.rimuoviDispositivo(dispositivo);
@@ -135,6 +144,7 @@ public class Menu {
                 }
             }
             while (continua) ;
+
         } finally {
             System.out.println("Grazie e buona giornata!");
         }
