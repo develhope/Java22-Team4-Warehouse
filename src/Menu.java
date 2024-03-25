@@ -59,39 +59,66 @@ public class Menu {
                 c. se vuoi rimovere tutti i prodotti dal carrello,
                 d. visualizza gli elementi del tuo carrello,
                 e. totale del carrello,
+                f. per tornare al menù principale.
                 """);
         String scelta = scanner.next();
         switch (scelta) {
             case "a":
-                System.out.println("Aggiungi l'id che vuoi cercare: ");
-                int id = scanner.nextInt();
-                List<Dispositivi> listaCarrello = carrello.aggiungiDispositivo(id);
-                if (listaCarrello.isEmpty()) {
-                    System.out.println("La tua ricerca non ha prodotto risultati.\n");
-                    this.executeCaseC(scanner);
-                } else {
-                    System.out.println("I prodotti nel tuo carrello sono: \n" + listaCarrello);
-                    backToMenu(scanner);
-                }
+                caseA(scanner);
                 break;
             case "b":
-                carrello.rimuoviDispositivo(dispositivo);
+                caseB();
                 break;
             case "c":
                 carrello.svuotaCarrello();
                 break;
             case "d":
-                carrello.stampaElementiCarrello();
+                caseD();
                 break;
             case "e":
                 carrello.calcolaTotale();
                 break;
+            case "f":
+                avviaMenu();
             default:
                 System.out.println("Operazione non valida.");
                 break;
         }
     }
 
+    private void caseA(Scanner scanner) {
+        System.out.println("Aggiungi l'id che vuoi cercare: ");
+        int id = scanner.nextInt();
+        List<Dispositivi> listaCarrello = carrello.aggiungiDispositivo(id);
+        if (listaCarrello.isEmpty()) {
+            System.out.println("La tua ricerca non ha prodotto risultati.\n");
+            this.executeCaseC(scanner);
+        } else {
+            System.out.println("Ho aggiunto questi prodotti al tuo carrello: \n" + listaCarrello);
+            backToMenu(scanner);
+        }
+    }
+    private void caseD() {
+        List<Dispositivi> listaCarrello = carrello.getListaCarrello();
+        if (listaCarrello.isEmpty()) {
+            System.out.println("Il tuo carrello è vuoto");
+            backToMenu(scanner);
+        }else{
+            System.out.println("Il carrello contiene: " + listaCarrello.size() + " elementi");
+            System.out.println(listaCarrello);
+        }
+    }
+    private void caseB(){
+        List<Dispositivi> listaRimozione = carrello.rimuoviDispositivoDalCarrello(scanner.nextLine());
+        if(listaRimozione.isEmpty()){
+            System.out.println("Non è possibile eseguire questa operazione, digita nuovamente il tipo di dispositivo che vuoi rimuovere." );
+            caseB();
+        }else{
+            System.out.println(" Gli elementi rimossi sono: "+listaRimozione);
+            sleepMode();
+            System.out.println("\n Attualmente nel tuo carrello sono presenti questi prodotti:\n"+carrello.getListaCarrello());
+        }
+    }
     private void gestisciMagazzino(Scanner scanner) {
 
         boolean continua = true;
