@@ -97,7 +97,8 @@ public class Menu {
                         e. per effettuare una ricerca per prezzo di vendita,
                         f. per effettuare una ricerca per prezzo di acquisto,
                         g. per effettuare una ricerca con un range di prezzo,
-                        h. per visualizzare il totale della spesa media""");
+                        h. per visualizzare il totale della spesa media
+                        i. per tornare al menù principale""");
                 String scelta = scanner.next().toLowerCase();
                 switch (scelta) {
                     case "a":
@@ -125,8 +126,8 @@ public class Menu {
                     case "h":
                         executeCaseH();
                         break;
-                    case "esc":
-                        continua = false;
+                    case "i":
+                        esc(!continua);
                         break;
                     default:
                         System.out.println("Operazione non valida.");
@@ -139,6 +140,11 @@ public class Menu {
         }
     }
 
+    private void esc(boolean continua){
+        if(!continua){
+            avviaMenu();
+        }
+    }
     private static void sleepMode() {
         try {
             Thread.sleep(1000);
