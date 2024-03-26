@@ -7,11 +7,13 @@ public class Magazzino {
     public List<Dispositivi> getListaDispositivi() {
         return this.listaDispositivi;
     }
+
     //Metodo che permette l'aggiunta dei dispositivi al magazzino
     public List<Dispositivi> aggiungiDispositiviMagazzino(Dispositivi nuovoDispositivo) {
         listaDispositivi.add(nuovoDispositivo);
         return listaDispositivi;
     }
+
     //metodo di ricerca per produttore
     public List<Dispositivi> ricercaProduttore(String produttore) {
         List<Dispositivi> listaRisultato = new ArrayList<>();
