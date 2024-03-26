@@ -1,31 +1,31 @@
 import java.util.ArrayList;
 import java.util.List;
+
 import Dispositivi.*;
-import Magazzino.Magazzino;
+import Magazzino.*;
 
 public class Carrello {
-    public List<Dispositivi> listaCarrello;
+    public List<Dispositivi> listaCarrello = new ArrayList<>();
     Magazzino magazzino = new Magazzino();
     Dispositivi dispositivo = new Dispositivi();
-    private String nomeProduttore;
 
     public List<Dispositivi> getListaCarrello() {
         return this.listaCarrello;
     }
-    public List<Dispositivi> ricercaPerProduttore(String nomeProduttore){
-        this.nomeProduttore = nomeProduttore;
-        List<Dispositivi> listaProduttore = new ArrayList<>();
-        for (Dispositivi dispositivo : magazzino.getListaDispositivi()) {
-            if(dispositivo.getBrand().equalsIgnoreCase(nomeProduttore)){
-                listaProduttore.add(dispositivo);
+
+    public List<Dispositivi> ricercaPerProduttore(List<Dispositivi> listaDispositivi, String nomeProduttore) {
+        List<Dispositivi> listaProduttori = new ArrayList<>();
+        for (Dispositivi dispositivo : listaDispositivi) {
+            if (dispositivo.getBrand().equalsIgnoreCase(nomeProduttore)) {
+                listaProduttori.add(dispositivo);
             }
         }
-        return listaProduttore;
+        return listaProduttori;
     }
-    public List<Dispositivi> aggiungiDispositivo(int id) {
-        List<Dispositivi> listaCarrello = new ArrayList<>();
-        for(Dispositivi dispositivo : magazzino.getListaDispositivi()){
-            if(dispositivo.getId() == id){
+
+    public List<Dispositivi> aggiungiDispositivo(List<Dispositivi> listaDispositivi, int id) {
+        for (Dispositivi dispositivo : listaDispositivi) {
+            if (dispositivo.getId() == id) {
                 listaCarrello.add(dispositivo);
                 magazzino.getListaDispositivi().remove(dispositivo);
             }
@@ -33,10 +33,12 @@ public class Carrello {
         return listaCarrello;
     }
 
-    public List<Dispositivi> rimuoviDispositivoDalCarrello(String dispositivoDaRimuovere){
-        if(dispositivoDaRimuovere.equalsIgnoreCase(dispositivo.getDispositivo())){
-            listaCarrello.remove(dispositivo);
-            magazzino.getListaDispositivi().add(dispositivo);
+    public List<Dispositivi> rimuoviDispositivoDalCarrello(List<Dispositivi> listaDispositivi, String dispositivoDaRimuovere) {
+        for (Dispositivi dispositivo : listaDispositivi) {
+            if (dispositivo.getDispositivo().equalsIgnoreCase(dispositivoDaRimuovere)) {
+                listaCarrello.remove(dispositivo);
+                magazzino.getListaDispositivi().add(dispositivo);
+            }
         }
         return listaCarrello;
     }
@@ -49,7 +51,7 @@ public class Carrello {
         return totale;
     }
 
-    public List<Dispositivi> svuotaCarrello() {
+    public List<Dispositivi> svuotaCarrello(List<Dispositivi> listaCarrello) {
         listaCarrello.clear();
         return listaCarrello;
     }

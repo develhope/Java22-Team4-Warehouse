@@ -128,14 +128,14 @@ public class Dispositivi {
     @Override
     public String toString() {
         return
-                "Device: " + dispositivo +
-                        ", Brand: " + brand +
-                        ", Modello: " + modello +
-                        ", Descrizione: " + descrizione +
-                        ", Display: " + display +
-                        ", Memoria: " + memoria + " GB " +
-                        ", Prezzo d'Acquisto: " + prezzoAcquisto +" Euro " +
-                        ", Prezzo di Vendita: " + prezzoVendita + " Euro "+
-                        ", Id: " + id + "\n";
+                "\nDevice: " + dispositivo +"\n"+
+                        ", Id: " + id + "\n"+
+                        ", Brand: " + brand +"\n"+
+                        ", Modello: " + modello +"\n"+
+                        ", Descrizione: " + descrizione +"\n"+
+                        ", Display: " + display +" pollici \n"+
+                        ", Memoria: " + memoria + " GB " +"\n"+
+                        ", Prezzo d'Acquisto: " + prezzoAcquisto + " Euro " +"\n"+
+                        ", Prezzo di Vendita: " + prezzoVendita + " Euro " +"\n";
     }
 }
