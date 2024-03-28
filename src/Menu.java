@@ -120,14 +120,14 @@ public class Menu {
     private void caseC(){
         System.out.println("Digita il tipo di dispositivo che vuoi rimuovere....");
         String daRimuovere = scanner.nextLine();
-        List<Dispositivi> listaRimozione = carrello.rimuoviDispositivoDalCarrello(carrello.getListaCarrello(),daRimuovere);
+        List<Dispositivi> listaRimozione = carrello.rimuoviDispositivoDalCarrello(daRimuovere);
         if(listaRimozione.isEmpty()){
-            System.out.println("Non è possibile eseguire questa operazione...." );
+            System.out.println("Il carrello ora è vuoto....");
             backToCarrello(scanner);
-        }else{
+        }else {
             System.out.println(" Gli elementi rimossi sono: " + listaRimozione);
             sleepMode();
-            System.out.println("\n Attualmente nel tuo carrello sono presenti questi prodotti:\n"+ carrello.getListaCarrello());
+            System.out.println("\n Attualmente nel tuo carrello sono presenti questi prodotti:\n" + carrello.getListaCarrello());
         }
     }
     private void caseD() {
@@ -141,7 +141,7 @@ public class Menu {
             System.out.println("Il tuo carrello è vuoto");
             backToMenu(scanner);
         }else{
-            System.out.println("Il carrello contiene: " + carrello.getListaCarrello().size() + " elementi");
+            System.out.println("Il carrello contiene: " + listaCarrello.size() + " elementi");
             System.out.println(listaCarrello);
         }
     }
