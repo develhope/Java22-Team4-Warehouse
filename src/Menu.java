@@ -157,8 +157,13 @@ public class Menu {
 
     private void executeCaseG(Scanner scanner) {
         System.out.println("Inserisci il prezzo minimo e massimo del prodotto che cerchi:");
-        double max = scanner.nextDouble();
-        double min = scanner.nextDouble();
+        double max = 0;
+        double min = 0;
+        min = scanner.nextDouble();
+        max = scanner.nextDouble();
+        scanner.nextLine();
+
+        System.out.println("Ricerca dispositivi nel range: " + min + " - " + max);
         List<Dispositivi> risultatoRicercaRange = magazzino.cercaPerRangePrezzo(magazzino.getListaDispositivi(),min,max);
         if(risultatoRicercaRange.isEmpty()){
             System.out.println("La tua ricerca non ha prodotto risultati.\n");
@@ -255,8 +260,10 @@ public class Menu {
                 nuovoDispositivo.setMemoria(scanner.nextLine());
                 System.out.print("Inserisci il prezzo di acquisto del dispositivo: ");
                 nuovoDispositivo.setPrezzoAcquisto(scanner.nextDouble());
+
                 System.out.println("Inserisci il prezzo di vendita al dettaglio del dispositivo:");
                 nuovoDispositivo.setPrezzoVendita(scanner.nextDouble());
+
                 nuovoDispositivo.setId(nuovoDispositivo.autoIncrementoID(magazzino.getListaDispositivi()));
                 magazzino.aggiungiDispositiviMagazzino(nuovoDispositivo);
                 System.out.print("Desideri aggiungere un altro dispositivo? (sì/no): ");
