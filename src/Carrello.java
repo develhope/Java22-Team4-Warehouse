@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import Dispositivi.*;
@@ -33,14 +34,28 @@ public class Carrello {
         return listaCarrello;
     }
 
-    public List<Dispositivi> rimuoviDispositivoDalCarrello(List<Dispositivi> listaDispositivi, String dispositivoDaRimuovere) {
-        for (Dispositivi dispositivo : listaDispositivi) {
-            if (dispositivo.getDispositivo().equalsIgnoreCase(dispositivoDaRimuovere)) {
-                listaCarrello.remove(dispositivo);
+    //    public List<Dispositivi> rimuoviDispositivoDalCarrello(String dispositivoDaRimuovere) {
+//        List<Dispositivi> listaRimozione = this.listaCarrello;
+//        if (listaRimozione.size() > 0) {
+//            for (Dispositivi dispositivo : listaRimozione) {
+//                if (dispositivo.getDispositivo().equalsIgnoreCase(dispositivoDaRimuovere)) {
+//                    listaRimozione.remove(dispositivo);
+//                    magazzino.getListaDispositivi().add(dispositivo);
+//                }
+//            }
+//        }
+//        return listaRimozione;
+//    }
+    public List<Dispositivi> rimuoviDispositivoDalCarrello(String dispositivoDaRimuovere) {
+        Iterator<Dispositivi> iteratoreRimozione = this.listaCarrello.iterator();
+        while(iteratoreRimozione.hasNext()){
+            Dispositivi dispositivo = iteratoreRimozione.next();
+            if(dispositivo.getDispositivo().equalsIgnoreCase(dispositivoDaRimuovere)){
+                iteratoreRimozione.remove();
                 magazzino.getListaDispositivi().add(dispositivo);
             }
         }
-        return listaCarrello;
+        return this.listaCarrello;
     }
 
     public double calcolaTotale() {

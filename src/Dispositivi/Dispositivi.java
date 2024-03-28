@@ -32,17 +32,6 @@ public class Dispositivi {
         this.prezzoAcquisto = prezzoAcquisto;
         this.prezzoVendita = prezzoVendita;
     }
-    public Dispositivi(Scanner scanner){
-        this.dispositivo = scanner.next();
-        this.brand = scanner.next();
-        this.modello = scanner.next();
-        this.descrizione = scanner.next();
-        this.display = scanner.next();
-        this.memoria = scanner.next();
-        this.prezzoAcquisto = Double.valueOf(scanner.next());
-        this.prezzoVendita = Double.valueOf(scanner.next());
-    }
-
     public Dispositivi() {}
     public int autoIncrementoID(List<Dispositivi> lista){
         int lastID = 0;
@@ -129,13 +118,13 @@ public class Dispositivi {
     public String toString() {
         return
                 "\nDevice: " + dispositivo +"\n"+
-                        ", Id: " + id + "\n"+
-                        ", Brand: " + brand +"\n"+
-                        ", Modello: " + modello +"\n"+
-                        ", Descrizione: " + descrizione +"\n"+
-                        ", Display: " + display +" pollici \n"+
-                        ", Memoria: " + memoria + " GB " +"\n"+
-                        ", Prezzo d'Acquisto: " + prezzoAcquisto + " Euro " +"\n"+
-                        ", Prezzo di Vendita: " + prezzoVendita + " Euro " +"\n";
+                        "Id: " + id + "\n"+
+                        "Brand: " + brand +"\n"+
+                        "Modello: " + modello +"\n"+
+                        "Descrizione: " + descrizione +"\n"+
+                        "Display: " + display +" pollici \n"+
+                        "Memoria: " + memoria + " GB " +"\n"+
+                        "Prezzo d'Acquisto: " + prezzoAcquisto + " Euro " +"\n"+
+                        "Prezzo di Vendita: " + prezzoVendita + " Euro " +"\n";
     }
 }
