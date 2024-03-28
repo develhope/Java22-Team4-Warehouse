@@ -121,7 +121,7 @@ public class Menu {
         System.out.println("Digita il tipo di dispositivo che vuoi rimuovere....");
         String daRimuovere = scanner.nextLine();
         List<Dispositivi> listaRimozione = carrello.rimuoviDispositivoDalCarrello(daRimuovere);
-        if(listaRimozione.isEmpty()){
+        if(listaRimozione.isEmpty()|| carrello.listaCarrello.isEmpty()){
             System.out.println("Il carrello ora è vuoto....");
             backToCarrello(scanner);
         }else {
