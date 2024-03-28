@@ -2,6 +2,7 @@ import Dispositivi.Dispositivi;
 import Magazzino.Magazzino;
 import java.util.Scanner;
 public class Main {
+
     public static void main(String[] args) {
         Carrello carrello = new Carrello();
         Magazzino magazzino = new Magazzino();
